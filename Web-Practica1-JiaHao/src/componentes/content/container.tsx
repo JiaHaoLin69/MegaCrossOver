@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import CardBootstrap, { type CardProps } from './bootstrap.tsx';
-import './Container.css'; 
+import './container.css'; 
 interface CardContainerProps {
   cardsData: CardProps[];
 }
