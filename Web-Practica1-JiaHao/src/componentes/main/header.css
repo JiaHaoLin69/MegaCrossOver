@@ -1,0 +1,32 @@
+.imagen{
+    /*Configuración de la imagen de fondo*/
+    background-image: url('../../assets/images/02.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /*Dimensiones de la imagen*/
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*Para la legibilidad del texto*/
+    text-align: center;
+    position: relative;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+.contenido{
+    z-index: 2;
+    padding: 20px;
+}
+
+.contenido h1{
+    font-size: 3em;
+    margin-bottom: 0.2em;
+}
+
+.contenido p{
+    font-size: 1.2em;
+    margin-top: 0;
+}
