@@ -13,3 +13,5 @@ main(){
     start-dev
     tail -f /dev/null
 }
+
+main
