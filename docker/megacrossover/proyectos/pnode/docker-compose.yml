@@ -8,7 +8,7 @@ services:
       - "${PORT_WEB}:80"     
     env_file:
       - ./.env
-    image: jiahaolin69/nodeJS
+    image: jiahaolin69/nodejs
     volumes:
       - ./logs:/root/logs      
     networks:
