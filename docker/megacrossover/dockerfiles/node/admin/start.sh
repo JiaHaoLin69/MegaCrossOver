@@ -10,6 +10,7 @@ workdir(){
 
 dependencias(){
     npm install
+    cp -r dist/* /var/www/html/
 }
 
 start-dev() {
