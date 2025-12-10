@@ -12,10 +12,10 @@ services:
     volumes:
       - ./logs:/root/logs      
     networks:
-      netcarontewebnginx:
+      netmegacrossovernginx:
         ipv4_address: ${IP}
 networks:
-  netcarontewebnginx:
+  netmegacrossovernginx:
     driver: bridge
     ipam:
       driver: default
