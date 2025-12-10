@@ -4,6 +4,9 @@ load_entrypoint_nginx(){
     bash /root/admin/nginx/admin/start.sh
 }
 
+workdir(){
+    cd /root/admin/node/proyectos/pmegacrossover
+}
 
 dependencias(){
     npm install
@@ -15,6 +18,7 @@ start-dev() {
 
 main(){
     load_entrypoint_nginx
+    workdir
     dependencias
     start-dev
     tail -f /dev/null
