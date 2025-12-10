@@ -17,10 +17,10 @@ services:
     volumes:
       - ./logs:/root/logs 
     networks:
-      netcaronte:
+      netmegacrossover:
         ipv4_address: ${IP_WEB}
 networks:
-  netcaronte:
+  netmegacrossover:
     driver: bridge
     ipam:
       driver: default
