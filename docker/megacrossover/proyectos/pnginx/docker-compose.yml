@@ -1,0 +1,23 @@
+services:
+  web:
+    build:
+      context: ${CONTEXTO}
+      dockerfile: ./dockerfiles/nginx/nginx
+    container_name: ${NOMBRE}
+    ports:
+      - "${PORT_WEB}:80"     
+    env_file:
+      - ./.env
+    image: jiahaolin69/nginx
+    volumes:
+      - ./logs:/root/logs      
+    networks:
+      netcarontewebnginx:
+        ipv4_address: ${IP}
+networks:
+  netcarontewebnginx:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: ${SUBNET}
