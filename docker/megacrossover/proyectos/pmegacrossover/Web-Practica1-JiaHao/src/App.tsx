@@ -16,6 +16,7 @@ import img1 from './assets/images/01.jpg';
 import img2 from './assets/images/03.jpg';
 import img3 from './assets/images/07.jpg';
 import img4 from './assets/images/06.jpeg';
+import img5 from './assets/images/08.jpg';
 
 //DEFINICIÓN DE DATOS PARA LOS COMPONENTES
 
@@ -30,7 +31,7 @@ const navLinksData: NavLinkItem[] = [
 const cardData: CardProps[] = [
   { 
     id: 1, 
-    imgSrc: 'src/assets/images/05.jpg', 
+    imgSrc: img4, 
     title: 'Sé tu mismo', 
     text: 'Que no llegue una persona con pocos modales a bajartes los ánimos.', 
     buttonLabel: 'Leer Más', 
@@ -38,7 +39,7 @@ const cardData: CardProps[] = [
   },
   { 
     id: 2, 
-    imgSrc: 'scr/assets/images/02.jpg',
+    imgSrc: img5,
     title: 'Si todo sale mal entonces...', 
     text: 'Hay que ser paciente o joderse y bailar.', 
     buttonLabel: 'Ver Detalles', 
@@ -46,7 +47,7 @@ const cardData: CardProps[] = [
   },
   { 
     id: 3, 
-    imgSrc: 'src/assets/images/04.jpg',
+    imgSrc: img1,
     title: 'No se que poner', 
     text: 'Ante la duda no pongas nada más :D', 
     buttonLabel: 'Descubrir', 
