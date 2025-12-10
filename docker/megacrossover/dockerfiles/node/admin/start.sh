@@ -18,10 +18,6 @@ start-dev() {
     npm run dev   
 }
 
-nginx-reload(){
-    service nginx reload
-}
-
 main(){
     load_entrypoint_nginx
     workdir
