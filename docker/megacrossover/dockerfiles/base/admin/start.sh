@@ -1,3 +1,4 @@
+#!/bin/bash
 set -e
 
 source /root/admin/base/usuario/mainuser.sh
