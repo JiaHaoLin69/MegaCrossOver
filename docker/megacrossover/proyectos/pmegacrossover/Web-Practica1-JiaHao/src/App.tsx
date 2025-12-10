@@ -16,7 +16,7 @@ import img1 from './assets/images/01.jpg';
 import img2 from './assets/images/03.jpg';
 import img3 from './assets/images/07.jpg';
 import img4 from './assets/images/06.jpeg';
-import img5 from './assets/images/08.jpg';
+import img5 from './assets/images/08.jpeg';
 
 //DEFINICIÓN DE DATOS PARA LOS COMPONENTES
 
