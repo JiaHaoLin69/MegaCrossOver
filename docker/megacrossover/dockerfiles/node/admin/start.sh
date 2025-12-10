@@ -18,11 +18,16 @@ start-dev() {
     npm run dev   
 }
 
+nginxreload(){
+    service nginx reload
+}
+
 main(){
     load_entrypoint_nginx
     workdir
     dependencias
     start-dev
+    nginxreload
     tail -f /dev/null
 }
 
