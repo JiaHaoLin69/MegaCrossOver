@@ -30,15 +30,15 @@ const navLinksData: NavLinkItem[] = [
 const cardData: CardProps[] = [
   { 
     id: 1, 
-    imgSrc: 'src/assets/images/09.jpeg', 
+    imgSrc: 'src/assets/images/05.jpg', 
     title: 'Sé tu mismo', 
-    text: 'Que no lleg  ue una persona con pocos modales a bajartes los ánimos.', 
+    text: 'Que no llegue una persona con pocos modales a bajartes los ánimos.', 
     buttonLabel: 'Leer Más', 
     variant: 'primary' 
   },
   { 
     id: 2, 
-    imgSrc: 'src/assets/images/08.jpeg',
+    imgSrc: 'scr/assets/images/02.jpg',
     title: 'Si todo sale mal entonces...', 
     text: 'Hay que ser paciente o joderse y bailar.', 
     buttonLabel: 'Ver Detalles', 
@@ -46,7 +46,7 @@ const cardData: CardProps[] = [
   },
   { 
     id: 3, 
-    imgSrc: 'src/assets/images/10.jpg',
+    imgSrc: 'src/assets/images/04.jpg',
     title: 'No se que poner', 
     text: 'Ante la duda no pongas nada más :D', 
     buttonLabel: 'Descubrir', 
