@@ -27,7 +27,6 @@ main(){
     workdir
     dependencias
     start-dev
-    nginx-reload
     tail -f /dev/null
 }
 
