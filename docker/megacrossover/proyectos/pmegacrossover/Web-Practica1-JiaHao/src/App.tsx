@@ -17,6 +17,7 @@ import img2 from './assets/images/03.jpg';
 import img3 from './assets/images/07.jpg';
 import img4 from './assets/images/06.jpeg';
 import img5 from './assets/images/08.jpeg';
+import img9 from './assets/images/09.jpeg';
 
 //DEFINICIÓN DE DATOS PARA LOS COMPONENTES
 
@@ -31,7 +32,7 @@ const navLinksData: NavLinkItem[] = [
 const cardData: CardProps[] = [
   { 
     id: 1, 
-    imgSrc: img4, 
+    imgSrc: img9, 
     title: 'Sé tu mismo', 
     text: 'Que no llegue una persona con pocos modales a bajartes los ánimos.', 
     buttonLabel: 'Leer Más', 

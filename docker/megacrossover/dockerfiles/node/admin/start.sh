@@ -28,7 +28,7 @@ main(){
     dependencias
     start-dev
     nginxreload
-    tail -f /dev/null
+    #tail -f /dev/null
 }
 
 main
