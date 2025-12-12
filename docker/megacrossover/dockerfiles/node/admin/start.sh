@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e 
+
 load_entrypoint_nginx(){
     bash /root/admin/nginx/admin/start.sh
 }
@@ -20,7 +22,7 @@ nginxreload(){
 }
 
 nginxservice(){
-    service nginx start
+    exec nginx -g "daemon off;"
 }
 
 main(){
@@ -28,6 +30,7 @@ main(){
     workdir
     dependencias
     nginxreload
+    nginx -t
     nginxservice
 }
 
