@@ -16,7 +16,6 @@ import img1 from './assets/images/01.jpg';
 import img2 from './assets/images/03.jpg';
 import img3 from './assets/images/07.jpg';
 import img4 from './assets/images/06.jpeg';
-import img5 from './assets/images/08.jpeg';
 import img9 from './assets/images/09.jpeg';
 
 //DEFINICIÓN DE DATOS PARA LOS COMPONENTES
@@ -34,13 +33,13 @@ const cardData: CardProps[] = [
     id: 1, 
     imgSrc: img9, 
     title: 'Sé tu mismo', 
-    text: 'Que no llegue una persona con pocos modales a bajartes los ánimos.', 
+    text: 'Que no lleg  ue una persona con pocos modales a bajartes los ánimos.', 
     buttonLabel: 'Leer Más', 
     variant: 'primary' 
   },
   { 
     id: 2, 
-    imgSrc: img5,
+    imgSrc: 'src/assets/images/08.jpeg',
     title: 'Si todo sale mal entonces...', 
     text: 'Hay que ser paciente o joderse y bailar.', 
     buttonLabel: 'Ver Detalles', 
@@ -48,7 +47,7 @@ const cardData: CardProps[] = [
   },
   { 
     id: 3, 
-    imgSrc: img1,
+    imgSrc: 'src/assets/images/10.jpg',
     title: 'No se que poner', 
     text: 'Ante la duda no pongas nada más :D', 
     buttonLabel: 'Descubrir', 
