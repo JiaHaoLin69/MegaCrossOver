@@ -20,7 +20,7 @@ nginxreload(){
 }
 
 nginxservice(){
-    exec nginx -g "daemon off;"
+    service nginx start
 }
 
 main(){
