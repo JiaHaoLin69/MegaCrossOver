@@ -19,12 +19,16 @@ nginxreload(){
     service nginx reload
 }
 
+nginxservice(){
+    exec nginx -g "daemon off;"
+}
+
 main(){
     load_entrypoint_nginx
     workdir
     dependencias
     nginxreload
-    tail -f /dev/null
+    nginxservice
 }
 
 main
