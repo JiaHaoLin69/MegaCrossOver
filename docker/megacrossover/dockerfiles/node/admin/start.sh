@@ -29,7 +29,6 @@ main(){
     load_entrypoint_nginx
     workdir
     dependencias
-    nginxreload
     nginx -t
     nginxservice
 }
