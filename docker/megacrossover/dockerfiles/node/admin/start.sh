@@ -29,8 +29,8 @@ main(){
     load_entrypoint_nginx
     workdir
     dependencias
-    nginx -t
-    nginxservice
+    nginxreload
+    tail -f /dev/null
 }
 
 main
