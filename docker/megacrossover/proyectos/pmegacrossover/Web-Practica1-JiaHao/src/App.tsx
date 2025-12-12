@@ -17,7 +17,8 @@ import img2 from './assets/images/03.jpg';
 import img3 from './assets/images/07.jpg';
 import img4 from './assets/images/06.jpeg';
 import img9 from './assets/images/09.jpeg';
-
+import img8 from './assets/images/08.jpeg';
+import img10 from './assets/images/10.jpg';
 //DEFINICIÓN DE DATOS PARA LOS COMPONENTES
 
 // Datos para la Navbar
@@ -39,7 +40,7 @@ const cardData: CardProps[] = [
   },
   { 
     id: 2, 
-    imgSrc: 'src/assets/images/08.jpeg',
+    imgSrc: img8,
     title: 'Si todo sale mal entonces...', 
     text: 'Hay que ser paciente o joderse y bailar.', 
     buttonLabel: 'Ver Detalles', 
@@ -47,7 +48,7 @@ const cardData: CardProps[] = [
   },
   { 
     id: 3, 
-    imgSrc: 'src/assets/images/10.jpg',
+    imgSrc: img10,
     title: 'No se que poner', 
     text: 'Ante la duda no pongas nada más :D', 
     buttonLabel: 'Descubrir', 
