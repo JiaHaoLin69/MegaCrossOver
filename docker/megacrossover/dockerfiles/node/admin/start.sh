@@ -13,9 +13,8 @@ workdir(){
 ajustar_nginx(){
     echo "Sobrescribiendo configuración de Nginx..."
     
-    # Creamos el archivo 'default' desde cero con la configuración correcta.
-    # IMPORTANTE: Fíjate que usamos \$uri para que bash no intente interpretar la variable.
-    cat > /etc/nginx/sites-available/default <<EOF
+    # IMPORTANTE: Usamos 'EOF' (con comillas) para proteger $uri
+    cat > /etc/nginx/sites-available/default <<'EOF'
 server {
     listen 80;
     listen [::]:80;
@@ -26,8 +25,8 @@ server {
     index index.html index.htm;
 
     location / {
-        # Esta linea es vital para React Router
-        try_files \$uri \$uri/ /index.html;
+        # Ahora sí se escribirá correctamente $uri
+        try_files $uri $uri/ /index.html;
     }
 }
 EOF
