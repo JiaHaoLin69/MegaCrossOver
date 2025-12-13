@@ -11,22 +11,26 @@ workdir(){
 }
 
 ajustar_nginx(){
-    local ARCHIVO_CONF="/etc/nginx/sites-available/default"
+    echo "Sobrescribiendo configuración de Nginx..."
     
-    # Si copiaste tu nginx.conf en el paso anterior, esta función lo corregirá.
-    # Si NO lo copiaste y usas el de por defecto de Nginx, también funcionará.
+    # Creamos el archivo 'default' desde cero con la configuración correcta.
+    # IMPORTANTE: Fíjate que usamos \$uri para que bash no intente interpretar la variable.
+    cat > /etc/nginx/sites-available/default <<EOF
+server {
+    listen 80;
+    listen [::]:80;
 
-    # 1. Corregir la ruta
-    sed -i 's|root /usr/share/nginx/html;|root /var/www/html;|g' "$ARCHIVO_CONF"
+    server_name megacrossover.com www.megacrossover.com;
 
-    # 2. Poner el dominio debajo de listen 80;
-    if ! grep -q "server_name megacrossover.com" "$ARCHIVO_CONF"; then
-        sed -i '/listen 80;/a \    server_name megacrossover.com www.megacrossover.com;' "$ARCHIVO_CONF"
-    fi
-    
-    # (Opcional) Asegurar que try_files esté correcto para React si usas el default de Nginx
-    # Esto busca la línea de try_files y la reemplaza por la buena
-    sed -i 's|try_files .*;|try_files $uri $uri/ /index.html;|g' "$ARCHIVO_CONF"
+    root /var/www/html;
+    index index.html index.htm;
+
+    location / {
+        # Esta linea es vital para React Router
+        try_files \$uri \$uri/ /index.html;
+    }
+}
+EOF
 }
 
 dependencias(){
