@@ -5,7 +5,7 @@ services:
       dockerfile: ./dockerfiles/node/node
     container_name: ${NOMBRE}
     ports:
-      - "${PORT_WEB}:80"     
+      - "80:80"     
     env_file:
       - ./.env
     image: jiahaolin69/nodejs
