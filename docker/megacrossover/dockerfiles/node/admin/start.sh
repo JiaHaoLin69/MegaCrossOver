@@ -37,6 +37,7 @@ dependencias(){
 
 
 nginxreload(){
+    nginx -t
     service nginx reload
 }
 
