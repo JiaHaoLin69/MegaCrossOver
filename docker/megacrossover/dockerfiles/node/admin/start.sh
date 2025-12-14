@@ -83,6 +83,7 @@ nginxreload(){
 main(){
     load_entrypoint_nginx
     workdir
+    certificados_ssl
     dependencias
     ajustar_nginx
     nginxreload
