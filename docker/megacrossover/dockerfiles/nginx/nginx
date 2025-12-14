@@ -15,6 +15,7 @@ EXPOSE 80
 
 RUN mkdir -p /root/admin/nginx
 WORKDIR /root/admin/nginx
+COPY ./common/cert/* ./cert/
 COPY ./dockerfiles/nginx .
 RUN chmod +x /root/admin/nginx/admin/start.sh
 
