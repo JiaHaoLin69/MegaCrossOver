@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // Componentes
-import Layout from './layout';
+//import Layout from './layout';
 import NavBar from './componentes/main/nav'; // Importamos NavBar directamente para envolverlo o pasarlo
 import MainContent from './componentes/content/maincontent';
 import CharacterDetail from './componentes/pages/CharacterDetail';
@@ -12,7 +12,7 @@ import Footer from './componentes/main/footer';
 import Header from './componentes/main/header';
 
 // Iconos y Datos
-import { MdHome, MdStar, MdImage, MdFacebook, MdEmail } from 'react-icons/md';
+import { MdHome, MdStar, MdImage, MdEmail } from 'react-icons/md';
 import { FaTiktok, FaReddit } from 'react-icons/fa';
 import { cardData, galleryData } from './data';
 import type { AsideLinkItem } from './componentes/content/maincontent';
