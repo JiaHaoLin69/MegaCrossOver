@@ -35,7 +35,7 @@ const CharacterDetail: React.FC = () => {
         <Col md={7}>
           <Badge bg={character.variant} className="mb-2">ID: {character.id}</Badge>
           <h1 className="display-4 fw-bold mb-3">{character.title}</h1>
-          <p className="lead text-muted">{character.text}</p>
+          <p className="lead text-main">{character.text}</p>
           <hr />
           <h4 className="fw-bold mt-4">Descripción Completa</h4>
           <p style={{ lineHeight: '1.8' }}>
