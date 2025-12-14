@@ -12,7 +12,7 @@ configurar_ssh() {
   cat /root/admin/base/common/id_rsa.pub >> /home/${USUARIO}/.ssh/authorized_keys
     #/etc/init.d/ssh start
   # Reinicar el servicio SSH para que se aplique las configuraciones
-  service ssh restart
+  #service ssh restart
   #exec /usr/sbin/sshd -D & # dejar el ssh en background PARA CUANDO LO IMPLEMENTOS EN UN SERVICIO
-  #exec /usr/sbin/sshd -D &
+  exec /usr/sbin/sshd -D &
 }
