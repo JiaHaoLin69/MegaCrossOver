@@ -24,7 +24,9 @@
   --body-gradient-1: hsla(253,16%,7%,0.05);
   --body-gradient-2: hsla(225,39%,30%,0.05);
   --body-gradient-3: hsla(339,49%,30%,0.05);
+
 }
+
 
 /* --- MODO OSCURO (Activado por atributo data-theme="dark") --- */
 [data-theme="dark"] {
@@ -93,5 +95,208 @@ html, body {
 .gradient-bg {
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%) !important;
     border: none;
+    color: white !important;
+}
+
+/* --- BOTÓN VOLVER PERSONALIZADO --- */
+.btn-back-watanare {
+    background-color: var(--bg-card) !important; /* Fondo del botón (blanco o oscuro) */
+    border: 2px solid var(--primary-pink) !important; /* Borde rosa */
+    padding: 10px 30px !important;
+    font-weight: 800 !important; /* Fuente gruesa como el título */
+    border-radius: 50px !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.btn-back-watanare:hover {
+    transform: translateX(-5px); /* Efecto de moverse atrás */
+    border-color: var(--accent-purple) !important;
+    box-shadow: 0 5px 15px rgba(142, 68, 173, 0.2);
+}
+
+/* El texto dentro del botón con degradado */
+.gradient-text {
+    background: -webkit-linear-gradient(45deg, var(--primary-pink), var(--accent-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block; /* Necesario para que el gradiente funcione bien */
+}
+
+/* El icono (Flecha) no soporta text-fill-color igual, así que le damos el color rosa principal */
+.btn-back-watanare svg {
+    color: var(--primary-pink);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.btn-back-watanare:hover svg {
+    color: var(--accent-purple);
+}
+/* === VARIANTE RENAKO (Rosa) === */
+.text-renako { color: var(--color-renako) !important; }
+.border-renako { border-color: var(--color-renako) !important; }
+.bg-renako { background-color: var(--color-renako) !important; color: white !important; }
+
+.btn-renako {
+    background: var(--color-renako) !important;
+    border: 1px solid var(--color-renako) !important;
+    color: white !important;
+}
+.btn-renako:hover {
+    background: #ff6b85 !important; /* Un poco más oscuro al pasar ratón */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 143, 163, 0.4);
+}
+.btn-outline-renako {
+    color: var(--color-renako) !important;
+    border-color: var(--color-renako) !important;
+    background: transparent !important;
+}
+.btn-outline-renako:hover {
+    background-color: var(--color-renako) !important;
+    color: white !important;
+}
+
+/* === VARIANTE MAI (Amarillo) === */
+.text-mai { color: var(--color-mai) !important; }
+.border-mai { border-color: var(--color-mai) !important; }
+.bg-mai { background-color: var(--color-mai) !important; color: #333 !important; } /* Texto oscuro para contraste */
+
+.btn-mai {
+    background: var(--color-mai) !important;
+    border: 1px solid var(--color-mai) !important;
+    color: #333 !important; /* Texto oscuro en fondo amarillo */
+    font-weight: 700;
+}
+.btn-mai:hover {
+    background: #f0932b !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(249, 202, 36, 0.4);
+}
+.btn-outline-mai {
+    color: var(--color-mai) !important;
+    border-color: var(--color-mai) !important;
+    background: transparent !important;
+}
+.btn-outline-mai:hover {
+    background-color: var(--color-mai) !important;
+    color: #333 !important;
+}
+/* --- COLORES DE PERSONAJES (WATANARE) --- */
+:root {
+    --color-renako: #ff8fa3;  /* Rosa Pastel */
+    --color-mai: #f9ca24;     /* Amarillo Intenso */
+    --color-ajisai: #c0a080;  /* Marrón Claro / Beige suave */
+}
+
+/* === VARIANTE RENAKO (Rosa) === */
+.text-renako { color: var(--color-renako) !important; }
+.border-renako { border-color: var(--color-renako) !important; }
+.bg-renako { background-color: var(--color-renako) !important; color: white !important; }
+
+.btn-renako {
+    background: var(--color-renako) !important;
+    border: 1px solid var(--color-renako) !important;
+    color: white !important;
+}
+.btn-renako:hover {
+    background: #ff6b85 !important; /* Un poco más oscuro al pasar ratón */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 143, 163, 0.4);
+}
+.btn-outline-renako {
+    color: var(--color-renako) !important;
+    border-color: var(--color-renako) !important;
+    background: transparent !important;
+}
+.btn-outline-renako:hover {
+    background-color: var(--color-renako) !important;
+    color: white !important;
+}
+
+/* === VARIANTE MAI (Amarillo) === */
+.text-mai { color: var(--color-mai) !important; }
+.border-mai { border-color: var(--color-mai) !important; }
+.bg-mai { background-color: var(--color-mai) !important; color: #333 !important; } /* Texto oscuro para contraste */
+
+.btn-mai {
+    background: var(--color-mai) !important;
+    border: 1px solid var(--color-mai) !important;
+    color: #333 !important; /* Texto oscuro en fondo amarillo */
+    font-weight: 700;
+}
+.btn-mai:hover {
+    background: #f0932b !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(249, 202, 36, 0.4);
+}
+.btn-outline-mai {
+    color: var(--color-mai) !important;
+    border-color: var(--color-mai) !important;
+    background: transparent !important;
+}
+.btn-outline-mai:hover {
+    background-color: var(--color-mai) !important;
+    color: #333 !important;
+}
+
+/* === VARIANTE AJISAI (Marrón Claro) === */
+.text-ajisai { color: var(--color-ajisai) !important; }
+.border-ajisai { border-color: var(--color-ajisai) !important; }
+.bg-ajisai { background-color: var(--color-ajisai) !important; color: white !important; }
+
+.btn-ajisai {
+    background: var(--color-ajisai) !important;
+    border: 1px solid var(--color-ajisai) !important;
+    color: white !important;
+}
+.btn-ajisai:hover {
+    background: #a38260 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(192, 160, 128, 0.4);
+}
+.btn-outline-ajisai {
+    color: var(--color-ajisai) !important;
+    border-color: var(--color-ajisai) !important;
+    background: transparent !important;
+}
+.btn-outline-ajisai:hover {
+    background-color: var(--color-ajisai) !important;
+    color: white !important;
+}
+
+:root {
+    --color-renako: #ff8fa3;  /* Rosa Pastel */
+    --color-mai: #f9ca24;     /* Amarillo Intenso */
+    --color-ajisai: #c0a080;  /* Marrón Claro / Beige suave */
+}
+
+/* === VARIANTE AJISAI (Marrón Claro) === */
+.text-ajisai { color: var(--color-ajisai) !important; }
+.border-ajisai { border-color: var(--color-ajisai) !important; }
+.bg-ajisai { background-color: var(--color-ajisai) !important; color: white !important; }
+
+.btn-ajisai {
+    background: var(--color-ajisai) !important;
+    border: 1px solid var(--color-ajisai) !important;
+    color: white !important;
+}
+.btn-ajisai:hover {
+    background: #a38260 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(192, 160, 128, 0.4);
+}
+.btn-outline-ajisai {
+    color: var(--color-ajisai) !important;
+    border-color: var(--color-ajisai) !important;
+    background: transparent !important;
+}
+.btn-outline-ajisai:hover {
+    background-color: var(--color-ajisai) !important;
     color: white !important;
 }

@@ -27,7 +27,7 @@ export const cardData: CharacterData[] = [
     text: 'La chica que solo quería amigos normales y terminó en el centro de un harem yuri inesperado. Su ansiedad social es su encanto.', 
     fullDescription: 'Renako Amaori es la protagonista principal. Después de un pasado traumático con las amistades, decide reinventarse en la preparatoria. Sin embargo, su plan de una "vida normal" se desmorona cuando la chica más popular de la escuela se le confiesa. Sufre de ansiedad social pero tiene un corazón de oro.',
     buttonLabel: 'Ver Historia', 
-    variant: 'primary' 
+    variant: 'renako'
   },
   { 
     id: 2, 
@@ -36,7 +36,7 @@ export const cardData: CharacterData[] = [
     text: 'La ídolo perfecta de la escuela que, secretamente, es una chica pesada y locamente enamorada de su mejor amiga.', 
     fullDescription: 'Mai Ozu es la modelo y estrella de la escuela. Parece perfecta, pero en realidad es bastante torpe y tiene un amor obsesivo por Renako. Hará lo que sea para que Renako la elija a ella, incluso si eso significa competir contra otras chicas.',
     buttonLabel: 'Descubrir Secreto', 
-    variant: 'success'
+    variant: 'mai'
   },
   { 
     id: 3, 
@@ -45,7 +45,7 @@ export const cardData: CharacterData[] = [
     text: 'El verdadero ángel del grupo. Siempre dispuesta a apoyar, aunque quizás sus sentimientos sean más profundos de lo que parecen.', 
     fullDescription: 'Ajisai es considerada un ángel por todos. Es amable, comprensiva y siempre sabe qué decir. Aunque apoya a Renako y Mai, muchos sospechan que guarda sus propios sentimientos profundos.',
     buttonLabel: 'Team Ajisai', 
-    variant: 'warning' 
+    variant: 'ajisai' 
   },
 ];
 

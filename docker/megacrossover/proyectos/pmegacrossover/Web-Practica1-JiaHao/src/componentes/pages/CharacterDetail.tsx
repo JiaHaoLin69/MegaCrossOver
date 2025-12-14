@@ -1,25 +1,25 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Container, Row, Col, Button, Badge } from 'react-bootstrap';
-import { cardData } from '../../data'; // Importamos los datos
+import { cardData } from '../../data';
 import { MdArrowBack } from 'react-icons/md';
 
 const CharacterDetail: React.FC = () => {
-  const { id } = useParams<{ id: string }>(); // Obtenemos el ID de la URL
-  
-  // Buscamos el personaje en nuestro array de datos
+  const { id } = useParams<{ id: string }>();
   const character = cardData.find(c => c.id === Number(id));
 
-  // Si no existe el personaje (ej: /personaje/999), redirigimos a 404
   if (!character) {
       return <Navigate to="/404" replace />;
   }
 
   return (
     <Container className="mt-5 pt-5 fade-in">
+      {/* BOTÓN VOLVER MODIFICADO */}
       <Link to="/" className="text-decoration-none">
-          <Button variant="outline-secondary" className="mb-4 rounded-pill">
-              <MdArrowBack /> Volver
+          <Button variant="link" className="mb-4 btn-back-watanare text-decoration-none">
+              <MdArrowBack /> 
+              {/* Aplicamos la clase gradient-text solo al texto */}
+              <span className="gradient-text">VOLVER</span>
           </Button>
       </Link>
 
