@@ -12,6 +12,7 @@ services:
     image: jiahaolin69/nodejs
     volumes:
       - ./logs:/root/logs      
+      - ../pmegacrossover/Web-Practica1-JiaHao:/root/admin/node/proyectos/pmegacrossover
     networks:
       netmegacrossovernode:
         ipv4_address: ${IP}
