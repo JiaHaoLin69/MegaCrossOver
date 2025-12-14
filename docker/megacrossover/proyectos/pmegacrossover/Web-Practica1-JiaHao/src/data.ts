@@ -1,7 +1,5 @@
 // Importaciones de imágenes para las Cards y Galería Principal
 import img1 from './assets/images/01.jpg';
-import img2 from './assets/images/02.jpg';
-import img6 from './assets/images/06.jpeg';
 import img8 from './assets/images/08.jpeg';
 import img9 from './assets/images/09.jpeg';
 import img10 from './assets/images/10.jpg';
