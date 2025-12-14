@@ -74,7 +74,7 @@ const App: React.FC = () => {
             <Routes>
                 <Route index element={
                     <>
-                        <Header title="WATANARE" subtitle="¿¡No hay manera de que pueda tener un amante!?" />
+                        <Header title="Watashi Ga Koibito ni nareru" subtitle="¿¡No hay manera de que pueda tener un amante!?" />
                         <MainContent cardsData={cardData} galleryData={galleryData} asideLinks={asideLinks} />
                     </>
                 } />
