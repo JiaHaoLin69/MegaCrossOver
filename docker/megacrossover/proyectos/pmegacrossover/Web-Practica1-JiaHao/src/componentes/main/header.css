@@ -1,32 +1,87 @@
-.imagen{
-    /*Configuración de la imagen de fondo*/
-    background-image: url('../../assets/images/02.jpg');
+.imagen {
+    /* Usamos la imagen 10 (Poster grupal) */
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(44, 62, 80, 0.8)), url('../../assets/images/10.jpg');
+    
+    /* PROPIEDAD CLAVE: Alineamos la imagen ARRIBA (top) para ver las caras */
+    background-position: center top; 
+    
     background-size: cover;
-    background-position: center center;
     background-repeat: no-repeat;
-    /*Dimensiones de la imagen*/
+    /* Mantenemos el efecto parallax si te gusta, si marea cámbialo a 'scroll' */
+    background-attachment: fixed; 
+    
+    /* Dimensiones "Bestias" (Iguales que antes) */
     width: 100%;
-    min-height: 300px;
+    height: 85vh; /* Ocupa el 85% de la altura de la pantalla */
+    
     display: flex;
-    align-items: center;
-    justify-content: center;
-    /*Para la legibilidad del texto*/
-    text-align: center;
+    align-items: center; /* Centrado vertical del contenido */
+    justify-content: center; /* Centrado horizontal */
+    
     position: relative;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    border-bottom-left-radius: 50% 10%;
+    border-bottom-right-radius: 50% 10%;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.4);
+    margin-bottom: 60px;
 }
-.contenido{
+
+.contenido {
     z-index: 2;
-    padding: 20px;
+    padding: 40px 60px;
+    background: rgba(255, 255, 255, 0.1); /* Cristal muy sutil */
+    backdrop-filter: blur(8px); /* Difuminado del fondo tras el texto */
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 900px;
+    
+    /* TRUCO: Bajamos un poco el texto para despejar las caras de arriba */
+    margin-top: 150px; 
 }
 
-.contenido h1{
-    font-size: 3em;
-    margin-bottom: 0.2em;
+.contenido h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    margin: 0;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    line-height: 1;
 }
 
-.contenido p{
-    font-size: 1.2em;
-    margin-top: 0;
+.contenido p {
+    font-size: 1.6rem;
+    margin-top: 15px;
+    color: #f0f0f0;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Animación de entrada */
+.fade-in-up {
+    animation: fadeInUp 1.2s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ajustes para móvil */
+@media (max-width: 768px) {
+    .imagen {
+        height: 60vh;
+        background-attachment: scroll; /* En móvil mejor scroll normal */
+        border-radius: 0 0 30px 30px; /* Curva menos agresiva */
+    }
+    .contenido {
+        padding: 20px;
+        margin-top: 50px; /* Menos margen en móvil */
+        width: 90%;
+    }
+    .contenido h1 { font-size: 2.5rem; }
 }

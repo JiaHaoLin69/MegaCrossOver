@@ -1,7 +1,80 @@
-html, body {
-    margin: 0; 
-    padding: 0; 
-    width: 100%; 
-    min-height: 100%; 
-    box-sizing: border-box; 
+/* ... tus estilos anteriores ... */
+
+.text-primary-gradient {
+    background: -webkit-linear-gradient(45deg, #ff7eb3, #8e44ad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.glass-widget {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.glass-widget:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border: none;
+}
+
+/* Badge de votos en las cards */
+.vote-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.img-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+/* --- Estilos para los Widgets del Aside --- */
+
+/* Efecto Cristal (Glassmorphism) para los contenedores */
+.glass-widget {
+    background: rgba(255, 255, 255, 0.7); /* Fondo blanco semitransparente */
+    backdrop-filter: blur(10px);          /* Desenfoque del fondo */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Borde sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover suave para los widgets */
+.glass-widget:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Fondo degradado para el widget de "Únete al Club" */
+.gradient-bg {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%) !important; /* Azul-Morado vibrante */
+    border: none;
+}
+
+/* Ajustes de tipografía para el aside */
+aside h5 {
+    color: #2c3e50;
+    letter-spacing: 0.5px;
+}
+
+/* Ajuste para los enlaces de la lista */
+.list-group-item {
+    transition: padding-left 0.2s ease;
+}
+
+.list-group-item:hover {
+    padding-left: 10px !important; /* Pequeño desplazamiento al pasar el ratón */
+    background-color: rgba(0,0,0,0.02) !important;
 }

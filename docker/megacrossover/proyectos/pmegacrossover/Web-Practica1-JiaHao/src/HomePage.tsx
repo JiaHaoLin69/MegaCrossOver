@@ -16,9 +16,8 @@ const HomePage: React.FC = () => {
 
   return (
     <MainContent 
-      cardsData={cardData} 
-      galleryData={galleryData} 
-    />
+      cardsData={cardData}
+      galleryData={galleryData} asideLinks={[]}    />
   );
 };
 

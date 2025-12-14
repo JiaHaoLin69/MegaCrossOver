@@ -1,26 +1,68 @@
 .card {
-
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-width: 3px !important; 
+    background: white !important;
+    border: none !important;
+    border-radius: 20px !important;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; /* Efecto rebote suave */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    height: 100%;
 }
 
 .card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(255, 126, 179, 0.3) !important;
+}
+
+.card-image-top {
+    height: 250px; /* Imágenes más altas */
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-image-top {
+    transform: scale(1.1); /* Zoom en la imagen al pasar el mouse */
 }
 
 .card-body {
-    padding: 25px;
+    padding: 30px !important;
+    position: relative;
+    z-index: 2;
+    background: white;
 }
 
 .card-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
+    font-weight: 800;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    background: -webkit-linear-gradient(45deg, #333, #666);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .card-text {
-    color: #555;
-    margin-bottom: 1.5rem;
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn {
+    border-radius: 50px !important;
+    padding: 10px 30px !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease !important;
+    border: none !important;
+}
+
+/* Botones personalizados */
+.btn-primary { background: linear-gradient(45deg, #7afcff, #2980b9) !important; }
+.btn-success { background: linear-gradient(45deg, #ff7eb3, #e84393) !important; } /* Rosa para Watanare */
+.btn-warning { background: linear-gradient(45deg, #f1c40f, #f39c12) !important; color: white !important; }
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }

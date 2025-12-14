@@ -1,15 +1,15 @@
 import React from "react";
 import "./header.css";
 
-interface header {
+interface HeaderProps {
     title: string;
     subtitle: string;
 }
 
-const header: React.FC<header> = ({ title, subtitle }) => {
+const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
     return ( 
     <header className="imagen">
-        <div className="contenido">
+        <div className="contenido fade-in-up">
             <h1>{title}</h1>
             <p>{subtitle}</p>
         </div>
@@ -17,4 +17,4 @@ const header: React.FC<header> = ({ title, subtitle }) => {
     );
 };
 
-export default header;
+export default Header;

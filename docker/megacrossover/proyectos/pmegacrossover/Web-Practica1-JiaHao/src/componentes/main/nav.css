@@ -1,39 +1,67 @@
-.nav-icon {
-    font-size: 2em; 
-    margin-right: 10px; 
-    vertical-align: middle; 
+/* Navbar fijo y con estilo cristal */
+.navbar-custom {
+    background: rgba(255, 255, 255, 0.9) !important; /* Un poco más opaco para legibilidad */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 12px 0 !important;
+    transition: all 0.3s ease;
+    z-index: 1030; /* Z-index de Bootstrap estándar para fixed-top */
 }
-.navbar-nav {
-    display: flex; 
-    justify-content: space-between; 
-    width: 100%;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 10spx 10px;
-    margin-top: 10px;
-    align-items: center; 
+
+/* Estilo del Título MEGACROSSOVER */
+.brand-button {
+    font-weight: 900; /* Más grueso para que se vea bien */
+    font-size: 1.6rem !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    
+    /* Color principal SÓLIDO por si falla el gradiente */
+    color: #e84393 !important; 
+    
+    /* Intento de gradiente (si el navegador lo soporta) */
+    background: -webkit-linear-gradient(45deg, #ff7eb3, #8e44ad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* Solo hacemos el texto transparente si el background-clip funciona */
+    -webkit-text-fill-color: transparent; 
+}
+
+/* Fallback para navegadores que no soporten text-fill-color */
+@supports not (-webkit-text-fill-color: transparent) {
+    .brand-button {
+        background: none;
+        color: #e84393 !important;
+    }
+}
+
+.brand-button:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+/* Enlaces */
+.navbar-links {
+    gap: 10px;
+}
+
+.nav-icon {
+    font-size: 1.2rem;
+    margin-right: 6px;
+    color: var(--primary-pink); /* Usa la variable rosa definida en index.css */
 }
 
 .navbar-nav .nav-link {
-    flex-grow: 1;
-    text-align: center; 
-    padding-top: 15px; 
-    padding-bottom: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    color: rgb(13, 1, 45); 
-    font-weight: 500;
-    transition: color 0.3s;
+    color: #2d3436 !important; /* Color oscuro para contraste */
+    font-weight: 600;
+    padding: 8px 16px !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #ff3333; 
-    background-color: transparent;
-}
-
-.nav-separator-icon {
-    color: #cc0000;
-    font-size: 0.8rem; 
-    margin: 0 15px; 
+    background: rgba(255, 126, 179, 0.15); /* Fondo rosa suave al pasar el mouse */
+    color: #e84393 !important;
 }
