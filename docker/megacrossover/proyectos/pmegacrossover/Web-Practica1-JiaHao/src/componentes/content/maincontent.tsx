@@ -41,7 +41,7 @@ const MainContent: React.FC<MainContentProps> = ({ cardsData, galleryData, aside
             <div className="glass-widget p-3 mb-4 rounded shadow-sm">
               <h5 className="fw-bold mb-3 border-bottom pb-2">🎬 Tráiler Destacado</h5>
               <YouTubeVideo embedId="tzfVzu6vYJo?si=8aFuqRGbnTCyu7_Z" /> 
-              <p className="text-muted small mt-2 fst-italic">
+              <p className="--text-main small mt-2 fst-italic">
                 Descubre las últimas novedades de la temporada.
               </p>
             </div>
