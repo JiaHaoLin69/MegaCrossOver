@@ -13,7 +13,7 @@ workdir(){
 certificados_ssl(){
 
     mkdir -p /etc/nginx/certs
-    cp -r /root/admin/node/proyectos/pmegacrossover/cert/ /etc/nginx/certs/
+    cp -r /root/admin/node/proyectos/pmegacrossover/cert/* /etc/nginx/certs/
 
 }
 
