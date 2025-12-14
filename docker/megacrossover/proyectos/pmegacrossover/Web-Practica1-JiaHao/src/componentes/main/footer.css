@@ -1,13 +1,22 @@
 .footer-container {
     width: 100%;
+    /* Usamos el fondo del body pero un poco más oscuro o con transparencia */
+    background-color: var(--nav-bg) !important; 
+    border-top: 1px solid var(--glass-border);
+    color: var(--text-main) !important;
 }
 
 .footer-container a {
-    color: white;
+    color: var(--text-muted);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-container a:hover {
-    color: #40C4FF; 
+    color: var(--primary-blue); 
+}
+
+/* Aseguramos que los textos muted de bootstrap se vean bien */
+.text-muted {
+    color: var(--text-muted) !important;
 }

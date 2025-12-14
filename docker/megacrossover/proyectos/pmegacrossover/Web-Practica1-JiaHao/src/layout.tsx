@@ -28,9 +28,10 @@ const Layout: React.FC = () => {
   return (
     <div className="App">
       <NavBar 
-        links={navLinksData} 
-        brandName="MEGACROSSOVER" 
-      />
+              links={navLinksData}
+              brandName="MEGACROSSOVER" currentTheme={''} toggleTheme={function (): void {
+                  throw new Error('Function not implemented.');
+              } }      />
       
       {isHomePage && (
           <Header 

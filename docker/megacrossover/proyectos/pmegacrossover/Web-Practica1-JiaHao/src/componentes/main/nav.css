@@ -1,13 +1,12 @@
-/* Navbar fijo y con estilo cristal */
 .navbar-custom {
-    background: rgba(255, 255, 255, 0.9) !important; /* Un poco más opaco para legibilidad */
+    background: var(--nav-bg) !important; /* Variable adaptativa */
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
     padding: 12px 0 !important;
     transition: all 0.3s ease;
-    z-index: 1030; /* Z-index de Bootstrap estándar para fixed-top */
+    z-index: 1030;
 }
 
 /* Estilo del Título MEGACROSSOVER */
@@ -47,14 +46,8 @@
     gap: 10px;
 }
 
-.nav-icon {
-    font-size: 1.2rem;
-    margin-right: 6px;
-    color: var(--primary-pink); /* Usa la variable rosa definida en index.css */
-}
-
 .navbar-nav .nav-link {
-    color: #2d3436 !important; /* Color oscuro para contraste */
+    color: var(--text-main) !important; /* Color texto adaptativo */
     font-weight: 600;
     padding: 8px 16px !important;
     border-radius: 8px;
@@ -62,6 +55,13 @@
 }
 
 .navbar-nav .nav-link:hover {
-    background: rgba(255, 126, 179, 0.15); /* Fondo rosa suave al pasar el mouse */
-    color: #e84393 !important;
+    background: rgba(255, 126, 179, 0.15);
+    color: #e84393 !important; /* Hover rosa siempre */
+}
+
+/* Asegurar que el icono también cambie */
+.nav-icon {
+    font-size: 1.2rem;
+    margin-right: 6px;
+    color: var(--primary-pink);
 }

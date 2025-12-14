@@ -1,81 +1,96 @@
-/* ... tus estilos anteriores ... */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 
+:root {
+  /* --- MODO CLARO (Base) --- */
+  --primary-pink: #ff7eb3;
+  --primary-blue: #7afcff;
+  --accent-purple: #8e44ad;
+  
+  /* Fondos y Textos */
+  --bg-body: #f0f2f5;
+  --bg-card: #ffffff;
+  --text-main: #2d3436;
+  --text-muted: #636e72;
+  
+  /* Efecto Cristal */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  
+  /* Navbar */
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  
+  /* Degradados */
+  --body-gradient-1: hsla(253,16%,7%,0.05);
+  --body-gradient-2: hsla(225,39%,30%,0.05);
+  --body-gradient-3: hsla(339,49%,30%,0.05);
+}
+
+/* --- MODO OSCURO (Activado por atributo data-theme="dark") --- */
+[data-theme="dark"] {
+    --primary-pink: #ff5e99;
+    
+    --bg-body: #0f172a; 
+    --bg-card: #1e293b;
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    
+    --glass-bg: rgba(15, 23, 42, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    
+    --nav-bg: rgba(15, 23, 42, 0.85);
+
+    --body-gradient-1: hsla(253,16%,7%,1);
+    --body-gradient-2: hsla(225,39%,30%,0.2);
+    --body-gradient-3: hsla(339,49%,30%,0.2);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-body);
+    background-image: 
+        radial-gradient(at 0% 0%, var(--body-gradient-1) 0, transparent 50%), 
+        radial-gradient(at 50% 0%, var(--body-gradient-2) 0, transparent 50%), 
+        radial-gradient(at 100% 0%, var(--body-gradient-3) 0, transparent 50%);
+    background-attachment: fixed;
+    color: var(--text-main);
+    overflow-x: hidden;
+    /* Transición suave para el cambio de tema */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--primary-pink); border-radius: 4px; }
+
+/* Utilidades */
 .text-primary-gradient {
-    background: -webkit-linear-gradient(45deg, #ff7eb3, #8e44ad);
+    background: -webkit-linear-gradient(45deg, var(--primary-pink), var(--accent-purple));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .glass-widget {
-    background: rgba(255, 255, 255, 0.6);
+    background: var(--glass-bg);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid var(--glass-border);
     border-radius: 15px;
     transition: transform 0.3s ease;
+    color: var(--text-main);
 }
 
 .glass-widget:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    box-shadow: var(--glass-shadow);
 }
 
 .gradient-bg {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%) !important;
     border: none;
-}
-
-/* Badge de votos en las cards */
-.vote-badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 0.9rem;
-    padding: 8px 12px;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 10;
-}
-
-.img-wrapper {
-    position: relative;
-    overflow: hidden;
-}
-/* --- Estilos para los Widgets del Aside --- */
-
-/* Efecto Cristal (Glassmorphism) para los contenedores */
-.glass-widget {
-    background: rgba(255, 255, 255, 0.7); /* Fondo blanco semitransparente */
-    backdrop-filter: blur(10px);          /* Desenfoque del fondo */
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.5); /* Borde sutil */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Efecto hover suave para los widgets */
-.glass-widget:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Fondo degradado para el widget de "Únete al Club" */
-.gradient-bg {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%) !important; /* Azul-Morado vibrante */
-    border: none;
-}
-
-/* Ajustes de tipografía para el aside */
-aside h5 {
-    color: #2c3e50;
-    letter-spacing: 0.5px;
-}
-
-/* Ajuste para los enlaces de la lista */
-.list-group-item {
-    transition: padding-left 0.2s ease;
-}
-
-.list-group-item:hover {
-    padding-left: 10px !important; /* Pequeño desplazamiento al pasar el ratón */
-    background-color: rgba(0,0,0,0.02) !important;
+    color: white !important;
 }

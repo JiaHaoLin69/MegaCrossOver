@@ -1,68 +1,59 @@
 .card {
-    background: white !important;
-    border: none !important;
+    background: var(--bg-card) !important; /* Fondo adaptativo */
+    border: 1px solid var(--glass-border) !important;
     border-radius: 20px !important;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; /* Efecto rebote suave */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     height: 100%;
 }
 
 .card:hover {
     transform: translateY(-15px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(255, 126, 179, 0.3) !important;
+    box-shadow: 0 20px 40px rgba(126, 179, 255, 0.2) !important; /* Sombra sutil */
 }
 
 .card-image-top {
-    height: 250px; /* Imágenes más altas */
+    height: 250px;
     object-fit: cover;
     transition: transform 0.5s ease;
 }
 
 .card:hover .card-image-top {
-    transform: scale(1.1); /* Zoom en la imagen al pasar el mouse */
+    transform: scale(1.1);
 }
 
 .card-body {
     padding: 30px !important;
     position: relative;
     z-index: 2;
-    background: white;
+    background: var(--bg-card); /* Fondo adaptativo */
+    color: var(--text-main);    /* Texto adaptativo */
 }
 
 .card-title {
     font-weight: 800;
     font-size: 1.6rem;
     margin-bottom: 15px;
-    background: -webkit-linear-gradient(45deg, #333, #666);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /* En modo oscuro, el gradiente gris/negro no se ve bien, así que usamos variables */
+    color: var(--text-main); 
 }
 
 .card-text {
-    color: var(--text-light);
+    color: var(--text-muted); /* Gris claro en oscuro, gris oscuro en claro */
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 25px;
 }
 
+/* Botones (se mantienen igual porque usan colores bootstrap o personalizados) */
 .btn {
     border-radius: 50px !important;
     padding: 10px 30px !important;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     transition: all 0.3s ease !important;
     border: none !important;
-}
-
-/* Botones personalizados */
-.btn-primary { background: linear-gradient(45deg, #7afcff, #2980b9) !important; }
-.btn-success { background: linear-gradient(45deg, #ff7eb3, #e84393) !important; } /* Rosa para Watanare */
-.btn-warning { background: linear-gradient(45deg, #f1c40f, #f39c12) !important; color: white !important; }
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
