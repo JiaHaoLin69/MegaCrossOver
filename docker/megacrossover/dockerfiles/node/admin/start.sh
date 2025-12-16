@@ -19,7 +19,7 @@ dependencias(){
 
 nginxreload(){
     nginx -t
-    service nginx reload
+    nginx -g 'daemon off;'
 }
 
 
@@ -28,7 +28,7 @@ main(){
     workdir
     dependencias
     nginxreload
-    tail -f /dev/null
+    #tail -f /dev/null
 }
 
 main
