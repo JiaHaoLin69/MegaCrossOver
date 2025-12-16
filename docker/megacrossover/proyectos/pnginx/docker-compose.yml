@@ -5,7 +5,7 @@ services:
       dockerfile: ./dockerfiles/nginx/nginx
     container_name: ${NOMBRE}
     ports:
-      - "80:80"     
+      - "8081:80"     
     env_file:
       - ./.env
     image: jiahaolin69/nginx
