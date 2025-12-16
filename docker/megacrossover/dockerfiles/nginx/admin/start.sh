@@ -1,7 +1,7 @@
 #!/bin/bash
 config_nginx() {
     service nginx restart
-    nginx 
+    service nginx stop
 }
 
 load_entrypoint_base(){
