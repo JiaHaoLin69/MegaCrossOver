@@ -19,7 +19,7 @@ const Home: React.FC = () => {
 
             {/* Sección Promocional Tienda */}
             <Container className="my-4">
-                <div className="p-5 text-center rounded-3 glass-panel shadow-sm position-relative overflow-hidden">
+                <div className="p-4 p-md-5 text-center rounded-3 glass-panel shadow-sm position-relative overflow-hidden">
                     <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '150px', height: '150px', background: 'var(--primary-pink)', filter: 'blur(60px)', opacity: 0.3, borderRadius: '50%' }}></div>
                     <div style={{ position: 'absolute', bottom: '-50px', left: '-50px', width: '150px', height: '150px', background: 'var(--accent-purple)', filter: 'blur(60px)', opacity: 0.3, borderRadius: '50%' }}></div>
 

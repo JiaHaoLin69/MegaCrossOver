@@ -1,22 +1,31 @@
 .card {
-    background: var(--bg-card) !important; /* Fondo adaptativo */
+    background: var(--bg-card) !important;
+    /* Fondo adaptativo */
     border: 1px solid var(--glass-border) !important;
     border-radius: 20px !important;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     height: 100%;
 }
 
 .card:hover {
     transform: translateY(-15px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(126, 179, 255, 0.2) !important; /* Sombra sutil */
+    box-shadow: 0 20px 40px rgba(126, 179, 255, 0.2) !important;
+    /* Sombra sutil */
 }
 
 .card-image-top {
     height: 250px;
     object-fit: cover;
     transition: transform 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    .card-image-top {
+        height: 200px;
+        /* Reduce height on mobile */
+    }
 }
 
 .card:hover .card-image-top {
@@ -27,8 +36,10 @@
     padding: 30px !important;
     position: relative;
     z-index: 2;
-    background: var(--bg-card); /* Fondo adaptativo */
-    color: var(--text-main);    /* Texto adaptativo */
+    background: var(--bg-card);
+    /* Fondo adaptativo */
+    color: var(--text-main);
+    /* Texto adaptativo */
 }
 
 .card-title {
@@ -36,11 +47,12 @@
     font-size: 1.6rem;
     margin-bottom: 15px;
     /* En modo oscuro, el gradiente gris/negro no se ve bien, así que usamos variables */
-    color: var(--text-main); 
+    color: var(--text-main);
 }
 
 .card-text {
-    color: var(--text-muted); /* Gris claro en oscuro, gris oscuro en claro */
+    color: var(--text-muted);
+    /* Gris claro en oscuro, gris oscuro en claro */
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 25px;
@@ -53,7 +65,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease !important;
     border: none !important;
 }

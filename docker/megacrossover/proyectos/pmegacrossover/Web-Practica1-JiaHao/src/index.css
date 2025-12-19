@@ -212,3 +212,30 @@ a:not(.btn) {
 .form-label {
     color: var(--text-main) !important;
 }
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+/* Mobile Devices (Landscape and Portrait) */
+@media only screen and (max-width: 768px) {
+    html {
+        font-size: 14px;
+        /* Reduce base font size */
+    }
+
+    .display-4 {
+        font-size: 2.5rem;
+        /* Ajustar títulos grandes */
+    }
+
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* Tablets */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    html {
+        font-size: 15px;
+    }
+}

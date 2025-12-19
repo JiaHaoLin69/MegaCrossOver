@@ -39,7 +39,19 @@
     /* Pequeña animación de desplazamiento */
 }
 
-.footer-container hr {
-    border-color: var(--glass-border);
-    opacity: 0.5;
+/* CSS Huérfano detectado - falta selector
+border-color: var(--glass-border);
+opacity: 0.5;
+*/
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        text-align: center;
+        padding: 1.5rem 0;
+    }
+
+    .footer-container .row {
+        gap: 2rem;
+    }
 }
