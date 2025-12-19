@@ -17,6 +17,7 @@ const ChatMode: React.FC = () => {
     const [currentNode, setCurrentNode] = useState<ChatNode | null>(null);
     const [isTyping, setIsTyping] = useState(false);
     const [affection, setAffection] = useState(0);
+    const [chatEnded, setChatEnded] = useState(false);
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -31,15 +32,21 @@ const ChatMode: React.FC = () => {
         setSelectedChar(char);
         setHistory([]);
         setAffection(0);
+        setChatEnded(false);
         loadNode(char.initialNode);
     };
 
     // CARGAR NODO
     const loadNode = (nodeId: string) => {
         const node = chatScenarios[nodeId];
-        if (!node) return;
+        if (!node) {
+            setChatEnded(true);
+            setCurrentNode(null);
+            return;
+        }
 
         setIsTyping(true);
+        setChatEnded(false);
 
         // Simulamos tiempo de respuesta
         setTimeout(() => {
@@ -49,6 +56,8 @@ const ChatMode: React.FC = () => {
 
             if (node.nextId) {
                 loadNode(node.nextId);
+            } else if (!node.options || node.options.length === 0) {
+                setChatEnded(true);
             }
         }, 1500);
     };
@@ -63,6 +72,7 @@ const ChatMode: React.FC = () => {
         addMessage(label, 'user');
         setAffection(prev => prev + points);
         setCurrentNode(null);
+        setChatEnded(false);
         loadNode(nextId);
     };
 
@@ -190,7 +200,31 @@ const ChatMode: React.FC = () => {
 
             {/* PIE DE CHAT (OPCIONES) */}
             <div className="chat-footer p-3">
-                {currentNode && currentNode.options && !isTyping ? (
+                {chatEnded ? (
+                    <div className="text-center">
+                        <p className="fw-semibold mb-3" style={{ color: 'var(--text-main)' }}>
+                            Conversación finalizada. ¿Quieres seguir explorando?
+                        </p>
+                        <div className="d-flex flex-wrap justify-content-center gap-2">
+                            <Button
+                                variant="light"
+                                className="rounded-pill fw-bold px-4"
+                                style={{ border: `1px solid ${selectedChar.color}` }}
+                                onClick={() => selectedChar && startChat(selectedChar)}
+                            >
+                                Reiniciar chat
+                            </Button>
+                            <Button
+                                variant="outline-light"
+                                className="rounded-pill fw-bold px-4"
+                                style={{ color: 'var(--text-main)', border: `1px dashed ${selectedChar.color}` }}
+                                onClick={() => setSelectedChar(null)}
+                            >
+                                Volver al menú
+                            </Button>
+                        </div>
+                    </div>
+                ) : currentNode && currentNode.options && !isTyping ? (
                     <div className="d-grid gap-2">
                         {currentNode.options.map((opt, idx) => (
                             <Button

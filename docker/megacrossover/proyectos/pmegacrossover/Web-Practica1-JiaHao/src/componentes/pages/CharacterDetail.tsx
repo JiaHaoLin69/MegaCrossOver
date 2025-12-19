@@ -1,24 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Container, Row, Col, Button, Tabs, Tab, ProgressBar } from 'react-bootstrap';
 import { cardData } from '../../data';
 import { MdArrowBack, MdFavorite } from 'react-icons/md';
+import { usePersistentVote } from '../../hooks/usePersistentVote';
 
 const CharacterDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const numericId = Number(id || 0);
   // Conversión segura de ID
-  const character = cardData.find(c => c.id === Number(id));
+  const character = cardData.find(c => c.id === numericId);
 
   // Estado de Votos
-  const [votes, setVotes] = useState(() => {
-    return Number(localStorage.getItem(`votes_${id}`)) || 0;
-  });
-
-  const handleVote = () => {
-    const newVotes = votes + 1;
-    setVotes(newVotes);
-    localStorage.setItem(`votes_${id}`, newVotes.toString());
-  };
+  const { votes, incrementVote } = usePersistentVote(numericId || 'unknown');
 
   if (!character) return <Navigate to="/404" replace />;
 
@@ -54,7 +48,7 @@ const CharacterDetail: React.FC = () => {
           {/* Botón de Votar usando tus estilos */}
           <Button
             className={`btn-${character.variant} w-100 mt-3 py-2 fw-bold rounded-pill border-0`}
-            onClick={handleVote}
+            onClick={incrementVote}
           >
             <MdFavorite className="me-2" /> ¡Dar amor! ({votes})
           </Button>

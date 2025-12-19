@@ -9,7 +9,11 @@ interface CardContainerProps {
 const CardContainer: React.FC<CardContainerProps> = ({ cardsData }) => {
   return (
     <Container className="my-5">
-      <h2 className="text-center mb-4">LA CLAVE DE LA FELICIDAD</h2>
+      <div className="section-header text-center mb-4">
+        <p className="eyebrow">Personajes destacados</p>
+        <h2>La clave del crossover perfecto</h2>
+        <p className="section-subtitle">Selecciona tu protagonista ideal y sigue su historia con un estilo editorial.</p>
+      </div>
       <Row className="g-4">
         {cardsData.map((card) => (
           <Col md={4} key={card.id}>
