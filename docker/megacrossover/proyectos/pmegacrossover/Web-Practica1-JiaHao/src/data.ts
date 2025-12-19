@@ -32,7 +32,7 @@ export const cardData: CharacterData[] = [
     title: 'Renako Amaori',
     shortText: 'La chica que anhela una vida normal pero atrae el caos romántico.',
     role: 'Protagonista (Uke)',
-    birthday: '25 de Septiembre',
+    birthday: '3 de Marzo',
     likes: ['Dormir', 'Videojuegos', 'Paz mental'],
     fullDescription: 'Renako dejó atrás su pasado solitario para debutar en la preparatoria, pero su ansiedad social y la confesión de Mai complicaron todo.',
     variant: 'renako' // <--- ESTO USARÁ TU CLASE .btn-renako
@@ -43,7 +43,7 @@ export const cardData: CharacterData[] = [
     title: 'Mai Ouzuka',
     shortText: 'La estrella perfecta de la escuela con un amor pesado.',
     role: 'Heroína Principal',
-    birthday: '8 de Agosto',
+    birthday: '31 de Agosto',
     likes: ['Renako', 'Renako', 'Ropa de Renako'],
     fullDescription: 'Mai parece la chica perfecta: rica, guapa y exitosa. Pero en el fondo es insegura y depende emocionalmente de Renako.',
     variant: 'mai' // <--- ESTO USARÁ TU CLASE .btn-mai
@@ -54,7 +54,7 @@ export const cardData: CharacterData[] = [
     title: 'Ajisai Sena',
     shortText: 'El ángel guardián que mantiene unido al grupo.',
     role: 'Mediadora / Ángel',
-    birthday: '12 de Febrero',
+    birthday: '12 de Diciembre',
     likes: ['Ayudar a otros', 'Cosas bonitas'],
     fullDescription: 'Ajisai es el pegamento del grupo. Siempre amable y dispuesta a escuchar. Sin embargo, tiene sus propios deseos...',
     variant: 'ajisai' // <--- ESTO USARÁ TU CLASE .btn-ajisai
