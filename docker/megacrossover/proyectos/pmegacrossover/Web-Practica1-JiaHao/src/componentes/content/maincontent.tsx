@@ -41,8 +41,15 @@ const MainContent: React.FC<MainContentProps> = ({ cardsData, galleryData, aside
     try {
       await sendNewsletterSubscription(email, {
         subject: '¡Nueva suscripción al Club MegaCrossOver!',
-        messageTemplate:
-          '¡Gracias por suscribirte a MegaCrossOver! Pronto recibirás nuestras novedades en {email}.',
+        messageTemplate: 'Nueva suscripción al boletín: {email}',
+        autoresponseTemplate:
+          '¡Gracias por suscribirte a MegaCrossOver! Hemos guardado {email} para enviarte nuestras novedades.',
+        pageName: 'MegaCrossOver',
+      });
+
+      setStatus('success');
+      setMessage('¡Listo! Te enviamos un correo de bienvenida con el estilo de MegaCrossOver.');
+      setEmail('');
     } catch (error) {
       setStatus('error');
       setMessage('No pudimos procesar tu solicitud. Inténtalo nuevamente en unos instantes.');
