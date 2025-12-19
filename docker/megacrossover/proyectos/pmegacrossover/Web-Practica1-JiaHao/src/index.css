@@ -1,302 +1,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 
 :root {
-  /* --- MODO CLARO (Base) --- */
-  --primary-pink: #ff7eb3;
-  --primary-blue: #7afcff;
-  --accent-purple: #8e44ad;
-  
-  /* Fondos y Textos */
-  --bg-body: #f0f2f5;
-  --bg-card: #ffffff;
-  --text-main: #2d3436;
-  --text-muted: #636e72;
-  
-  /* Efecto Cristal */
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.5);
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-  
-  /* Navbar */
-  --nav-bg: rgba(255, 255, 255, 0.85);
-  
-  /* Degradados */
-  --body-gradient-1: hsla(253,16%,7%,0.05);
-  --body-gradient-2: hsla(225,39%,30%,0.05);
-  --body-gradient-3: hsla(339,49%,30%,0.05);
+    /* --- COLORES IDENTIDAD (Watanare) --- */
+    --primary-pink: #ff7eb3;
+    --primary-blue: #7afcff;
+    --accent-purple: #8e44ad;
 
+    /* Colores de Personajes */
+    --color-renako: #ff8fa3;
+    --color-mai: #f9ca24;
+    --color-ajisai: #c0a080;
+
+    /* --- MODO CLARO (Base) --- */
+    --bg-body: #f0f2f5;
+    --bg-card: rgba(255, 255, 255, 0.9);
+    /* Un poco más sólido que el cristal puro */
+    --bg-surface: #ffffff;
+    /* Para elementos sólidos */
+
+    --text-main: #2d3436;
+    --text-muted: #636e72;
+    --border-color: rgba(0, 0, 0, 0.1);
+
+    /* Efecto Cristal (Glassmorphism) */
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
+    /* Navbar y Footer */
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    /* ¡Esto arregla el footer! */
+
+    /* Degradados de Fondo (La clave de la profundidad) */
+    --body-gradient-1: hsla(253, 16%, 7%, 0.05);
+    --body-gradient-2: hsla(225, 39%, 30%, 0.05);
+    --body-gradient-3: hsla(339, 49%, 30%, 0.05);
 }
 
-
-/* --- MODO OSCURO (Activado por atributo data-theme="dark") --- */
+/* --- MODO OSCURO --- */
 [data-theme="dark"] {
     --primary-pink: #ff5e99;
-    
-    --bg-body: #0f172a; 
-    --bg-card: #1e293b;
+
+    --bg-body: #0f172a;
+    --bg-card: rgba(30, 41, 59, 0.9);
+    --bg-surface: #1e293b;
+
     --text-main: #e2e8f0;
     --text-muted: #94a3b8;
-    
-    --glass-bg: rgba(15, 23, 42, 0.6);
-    --glass-black: black;
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-    
-    --nav-bg: rgba(15, 23, 42, 0.85);
+    --border-color: rgba(255, 255, 255, 0.1);
 
-    --body-gradient-1: hsla(253,16%,7%,1);
-    --body-gradient-2: hsla(225,39%,30%,0.2);
-    --body-gradient-3: hsla(339,49%,30%,0.2);
+    /* Cristal Oscuro */
+    --glass-bg: rgba(15, 23, 42, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+
+    --nav-bg: rgba(15, 23, 42, 0.95);
+    /* Footer oscuro casi opaco */
+
+    /* Degradados más intensos para la noche */
+    --body-gradient-1: hsla(253, 16%, 7%, 1);
+    --body-gradient-2: hsla(225, 39%, 30%, 0.2);
+    --body-gradient-3: hsla(339, 49%, 30%, 0.2);
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
+
+    /* APLICAMOS EL FONDO CON GRADIENTES */
     background-color: var(--bg-body);
-    background-image: 
-        radial-gradient(at 0% 0%, var(--body-gradient-1) 0, transparent 50%), 
-        radial-gradient(at 50% 0%, var(--body-gradient-2) 0, transparent 50%), 
+    background-image:
+        radial-gradient(at 0% 0%, var(--body-gradient-1) 0, transparent 50%),
+        radial-gradient(at 50% 0%, var(--body-gradient-2) 0, transparent 50%),
         radial-gradient(at 100% 0%, var(--body-gradient-3) 0, transparent 50%);
     background-attachment: fixed;
+
     color: var(--text-main);
     overflow-x: hidden;
-    /* Transición suave para el cambio de tema */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--primary-pink); border-radius: 4px; }
-
-/* Utilidades */
-.text-primary-gradient {
-    background: -webkit-linear-gradient(45deg, var(--primary-pink), var(--accent-purple));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* Scrollbar Bonita */
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-.glass-widget {
-    background: var(--glass-black);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    border-radius: 15px;
-    transition: transform 0.3s ease;
-    color: var(--text-main);
+::-webkit-scrollbar-track {
+    background: transparent;
 }
 
-.glass-widget:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--glass-shadow);
+::-webkit-scrollbar-thumb {
+    background: var(--primary-pink);
+    border-radius: 5px;
+    border: 2px solid transparent;
+    background-clip: content-box;
 }
 
-.gradient-bg {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%) !important;
-    border: none;
-    color: white !important;
-}
-
-/* --- BOTÓN VOLVER PERSONALIZADO --- */
-.btn-back-watanare {
-    background-color: var(--bg-card) !important; /* Fondo del botón (blanco o oscuro) */
-    border: 2px solid var(--primary-pink) !important; /* Borde rosa */
-    padding: 10px 30px !important;
-    font-weight: 800 !important; /* Fuente gruesa como el título */
-    border-radius: 50px !important;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.btn-back-watanare:hover {
-    transform: translateX(-5px); /* Efecto de moverse atrás */
-    border-color: var(--accent-purple) !important;
-    box-shadow: 0 5px 15px rgba(142, 68, 173, 0.2);
-}
-
-/* El texto dentro del botón con degradado */
-.gradient-text {
-    background: -webkit-linear-gradient(45deg, var(--primary-pink), var(--accent-purple));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block; /* Necesario para que el gradiente funcione bien */
-}
-
-/* El icono (Flecha) no soporta text-fill-color igual, así que le damos el color rosa principal */
-.btn-back-watanare svg {
-    color: var(--primary-pink);
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-}
-
-.btn-back-watanare:hover svg {
-    color: var(--accent-purple);
-}
-/* === VARIANTE RENAKO (Rosa) === */
-.text-renako { color: var(--color-renako) !important; }
-.border-renako { border-color: var(--color-renako) !important; }
-.bg-renako { background-color: var(--color-renako) !important; color: white !important; }
-
-.btn-renako {
-    background: var(--color-renako) !important;
-    border: 1px solid var(--color-renako) !important;
-    color: white !important;
-}
-.btn-renako:hover {
-    background: #ff6b85 !important; /* Un poco más oscuro al pasar ratón */
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 143, 163, 0.4);
-}
-.btn-outline-renako {
-    color: var(--color-renako) !important;
-    border-color: var(--color-renako) !important;
-    background: transparent !important;
-}
-.btn-outline-renako:hover {
-    background-color: var(--color-renako) !important;
-    color: white !important;
-}
-
-/* === VARIANTE MAI (Amarillo) === */
-.text-mai { color: var(--color-mai) !important; }
-.border-mai { border-color: var(--color-mai) !important; }
-.bg-mai { background-color: var(--color-mai) !important; color: #333 !important; } /* Texto oscuro para contraste */
-
-.btn-mai {
-    background: var(--color-mai) !important;
-    border: 1px solid var(--color-mai) !important;
-    color: #333 !important; /* Texto oscuro en fondo amarillo */
-    font-weight: 700;
-}
-.btn-mai:hover {
-    background: #f0932b !important;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(249, 202, 36, 0.4);
-}
-.btn-outline-mai {
-    color: var(--color-mai) !important;
-    border-color: var(--color-mai) !important;
-    background: transparent !important;
-}
-.btn-outline-mai:hover {
-    background-color: var(--color-mai) !important;
-    color: #333 !important;
-}
-/* --- COLORES DE PERSONAJES (WATANARE) --- */
-:root {
-    --color-renako: #ff8fa3;  /* Rosa Pastel */
-    --color-mai: #f9ca24;     /* Amarillo Intenso */
-    --color-ajisai: #c0a080;  /* Marrón Claro / Beige suave */
-}
-
-/* === VARIANTE RENAKO (Rosa) === */
-.text-renako { color: var(--color-renako) !important; }
-.border-renako { border-color: var(--color-renako) !important; }
-.bg-renako { background-color: var(--color-renako) !important; color: white !important; }
-
-.btn-renako {
-    background: var(--color-renako) !important;
-    border: 1px solid var(--color-renako) !important;
-    color: white !important;
-}
-.btn-renako:hover {
-    background: #ff6b85 !important; /* Un poco más oscuro al pasar ratón */
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 143, 163, 0.4);
-}
-.btn-outline-renako {
-    color: var(--color-renako) !important;
-    border-color: var(--color-renako) !important;
-    background: transparent !important;
-}
-.btn-outline-renako:hover {
-    background-color: var(--color-renako) !important;
-    color: white !important;
-}
-
-/* === VARIANTE MAI (Amarillo) === */
-.text-mai { color: var(--color-mai) !important; }
-.border-mai { border-color: var(--color-mai) !important; }
-.bg-mai { background-color: var(--color-mai) !important; color: #333 !important; } /* Texto oscuro para contraste */
-
-.btn-mai {
-    background: var(--color-mai) !important;
-    border: 1px solid var(--color-mai) !important;
-    color: #333 !important; /* Texto oscuro en fondo amarillo */
-    font-weight: 700;
-}
-.btn-mai:hover {
-    background: #f0932b !important;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(249, 202, 36, 0.4);
-}
-.btn-outline-mai {
-    color: var(--color-mai) !important;
-    border-color: var(--color-mai) !important;
-    background: transparent !important;
-}
-.btn-outline-mai:hover {
-    background-color: var(--color-mai) !important;
-    color: #333 !important;
-}
-
-/* === VARIANTE AJISAI (Marrón Claro) === */
-.text-ajisai { color: var(--color-ajisai) !important; }
-.border-ajisai { border-color: var(--color-ajisai) !important; }
-.bg-ajisai { background-color: var(--color-ajisai) !important; color: white !important; }
-
-.btn-ajisai {
-    background: var(--color-ajisai) !important;
-    border: 1px solid var(--color-ajisai) !important;
-    color: white !important;
-}
-.btn-ajisai:hover {
-    background: #a38260 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(192, 160, 128, 0.4);
-}
-.btn-outline-ajisai {
-    color: var(--color-ajisai) !important;
-    border-color: var(--color-ajisai) !important;
-    background: transparent !important;
-}
-.btn-outline-ajisai:hover {
-    background-color: var(--color-ajisai) !important;
-    color: white !important;
-}
-
-:root {
-    --color-renako: #ff8fa3;  /* Rosa Pastel */
-    --color-mai: #f9ca24;     /* Amarillo Intenso */
-    --color-ajisai: #c0a080;  /* Marrón Claro / Beige suave */
-}
-
-/* === VARIANTE AJISAI (Marrón Claro) === */
-.text-ajisai { color: var(--color-ajisai) !important; }
-.border-ajisai { border-color: var(--color-ajisai) !important; }
-.bg-ajisai { background-color: var(--color-ajisai) !important; color: white !important; }
-
-.btn-ajisai {
-    background: var(--color-ajisai) !important;
-    border: 1px solid var(--color-ajisai) !important;
-    color: white !important;
-}
-.btn-ajisai:hover {
-    background: #a38260 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(192, 160, 128, 0.4);
-}
-.btn-outline-ajisai {
-    color: var(--color-ajisai) !important;
-    border-color: var(--color-ajisai) !important;
-    background: transparent !important;
-}
-.btn-outline-ajisai:hover {
-    background-color: var(--color-ajisai) !important;
-    color: white !important;
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent-purple);
 }

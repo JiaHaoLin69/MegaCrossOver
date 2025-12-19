@@ -1,22 +1,45 @@
 .footer-container {
     width: 100%;
-    /* Usamos el fondo del body pero un poco más oscuro o con transparencia */
-    background-color: var(--nav-bg) !important; 
+    /* Usamos --nav-bg para que coincida con el navbar y tenga ese toque traslúcido */
+    background-color: var(--nav-bg) !important;
+
+    /* Borde superior sutil estilo cristal */
     border-top: 1px solid var(--glass-border);
+
+    /* Sombra para separarlo del contenido */
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+
     color: var(--text-main) !important;
+    backdrop-filter: blur(10px);
+    /* Efecto borroso detrás */
+    -webkit-backdrop-filter: blur(10px);
+
+    padding: 2rem 0;
+    margin-top: auto;
+    /* Empuja el footer al fondo si hay poco contenido */
+}
+
+.footer-container h5 {
+    color: var(--primary-pink);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .footer-container a {
-    color: var(--text-muted);
+    color: var(--text-muted) !important;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .footer-container a:hover {
-    color: var(--primary-blue); 
+    color: var(--primary-pink) !important;
+    padding-left: 5px;
+    /* Pequeña animación de desplazamiento */
 }
 
-/* Aseguramos que los textos muted de bootstrap se vean bien */
-.text-muted {
-    color: var(--text-muted) !important;
+.footer-container hr {
+    border-color: var(--glass-border);
+    opacity: 0.5;
 }
