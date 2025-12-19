@@ -4,13 +4,19 @@ services:
       context: ${CONTEXTO}
       dockerfile: ./dockerfiles/nginx/nginx
     container_name: ${NOMBRE}
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
     ports:
-      - "8081:80"     
+      - "${PORT_HTTP}:80"
     env_file:
       - ./.env
     image: jiahaolin69/nginx
     volumes:
-      - ./logs:/root/logs      
+      - ./logs:/root/logs
     networks:
       netmegacrossovernginx:
         ipv4_address: ${IP}

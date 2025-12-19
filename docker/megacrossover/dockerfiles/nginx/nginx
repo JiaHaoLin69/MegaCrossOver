@@ -2,7 +2,7 @@ FROM jiahaolin69/ubbase
 
 USER root
 RUN apt update && apt install -yq --no-install-recommends \
-    nginx
+    nginx && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 
 RUN chown -R www-data /var/www/html

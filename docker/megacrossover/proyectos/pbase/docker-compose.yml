@@ -2,15 +2,21 @@ services:
   web:
     build:
       context: ${CONTEXTO}
-      dockerfile: ./dockerfiles/base/ubbase 
+      dockerfile: ./dockerfiles/base/ubbase
     container_name: ${CONTAINER_NAME}
     image: jiahaolin69/ubbase
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
     ports:
       - ${PORT_SSH}:80
     env_file:
       - ./.env
     volumes:
-      - ./logs:/root/logs 
+      - ./logs:/root/logs
     networks:
       netmegacrossover:
         ipv4_address: ${IP_WEB}
@@ -21,4 +27,3 @@ networks:
       driver: default
       config:
         - subnet: ${SUBNET}
-
