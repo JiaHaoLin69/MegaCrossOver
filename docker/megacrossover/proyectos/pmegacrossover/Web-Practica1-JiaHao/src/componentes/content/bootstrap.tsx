@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, Button, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom'; // Importamos Link
-import './bootstrap.css'; 
+import './bootstrap.css';
+import { usePersistentVote } from '../../hooks/usePersistentVote';
 
 export interface CardProps {
   id: number;
@@ -13,12 +14,12 @@ export interface CardProps {
 }
 
 const CardBootstrap: React.FC<CardProps> = ({ id, title, text, buttonLabel, variant, imgSrc }) => {
-  const [votes, setVotes] = useState(0);
+  const { votes, incrementVote } = usePersistentVote(id);
 
   const handleVote = (e: React.MouseEvent) => {
     e.preventDefault(); // Evitamos que navegue si pulsamos el botón de votar
     e.stopPropagation();
-    setVotes(votes + 1);
+    incrementVote();
   };
 
   return (

@@ -38,7 +38,7 @@
     max-width: 900px;
     
     /* TRUCO: Bajamos un poco el texto para despejar las caras de arriba */
-    margin-top: 150px; 
+    margin-top: 150px;
 }
 
 .contenido h1 {
@@ -59,6 +59,67 @@
     font-weight: 300;
     letter-spacing: 1px;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #0f172a;
+    background: linear-gradient(90deg, #ffffff 0%, #e9efff 100%);
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 25px 0 10px;
+}
+
+.hero-actions .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.metric {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 18px;
+    padding: 14px 16px;
+    text-align: left;
+    color: #f5f7ff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.metric-label {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    opacity: 0.75;
+}
+
+.metric strong {
+    display: block;
+    font-size: 1.4rem;
+    margin: 4px 0;
+}
+
+.metric small {
+    color: rgba(245,247,255,0.8);
 }
 
 /* Animación de entrada */
