@@ -129,3 +129,156 @@
     box-shadow: 0 0 15px var(--primary-pink);
     transform: translateX(-5px);
 }
+/* --- HERO INTERESTELAR --- */
+.stellar-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 110px 24px 60px;
+    border-radius: 28px;
+    background: radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.18), transparent 35%),
+      radial-gradient(circle at 80% 0%, rgba(124, 110, 255, 0.25), transparent 30%),
+      linear-gradient(140deg, #0f0c29, #302b63, #24243e);
+    color: #fff;
+}
+
+.stellar-hero__glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 60% 40%, rgba(255, 255, 255, 0.08), transparent 40%);
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+.stellar-hero__grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.8), transparent 70%);
+    opacity: 0.6;
+}
+
+.stellar-hero__content {
+    position: relative;
+    max-width: 820px;
+    padding: 32px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.stellar-hero__stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+}
+
+.stellar-hero__stat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stellar-hero__stat-icon {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    color: #ff9cf3;
+    font-size: 1.3rem;
+}
+
+.stellar-hero__floating {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.floating-card {
+    position: absolute;
+    right: 22px;
+    padding: 12px 16px;
+    min-width: 240px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-card:nth-child(2) {
+    top: 42%;
+    animation-delay: 1.2s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 0.9; }
+    50% { transform: translateY(-10px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 0.9; }
+}
+
+/* --- ANIME PULSE --- */
+.anime-pulse {
+    background: radial-gradient(circle at 20% 20%, rgba(255, 143, 163, 0.2), transparent 45%),
+      radial-gradient(circle at 80% 10%, rgba(110, 124, 255, 0.25), transparent 40%),
+      var(--glass-bg);
+}
+
+.anime-card {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.anime-card__cover {
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    filter: saturate(1.2);
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(90deg, #ff6bcb, #8e44ad);
+}
+
+/* --- GALERÍA EXTERNA --- */
+.external-gallery-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.external-gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    min-height: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.external-gallery-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 44px rgba(0, 0, 0, 0.35);
+}
+
+.external-gallery-thumb {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: saturate(1.15);
+}
+
+.external-gallery-meta {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 16px;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.75));
+}
