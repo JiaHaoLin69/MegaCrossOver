@@ -1,5 +1,5 @@
-import React from 'react';
-import { Container, Row, Col, ListGroup } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Col, Container, Form, ListGroup, Row } from 'react-bootstrap';
 import CardContainer from './container'; 
 import Gallery, { type GalleryItem } from './galeria'; 
 import YouTubeVideo from '../aside/video'; 
@@ -19,6 +19,44 @@ interface MainContentProps {
 }
 
 const MainContent: React.FC<MainContentProps> = ({ cardsData, galleryData, asideLinks }) => {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState('');
+
+  const isValidEmail = (value: string) => /\S+@\S+\.\S+/.test(value.trim());
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!isValidEmail(email)) {
+      setStatus('error');
+      setMessage('Por favor ingresa un correo válido.');
+      return;
+    }
+
+    setStatus('loading');
+    setMessage('');
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Solicitud fallida');
+      }
+
+      setStatus('success');
+      setMessage('¡Gracias por unirte! Revisa tu bandeja para confirmar tu suscripción.');
+      setEmail('');
+    } catch (error) {
+      setStatus('error');
+      setMessage('No pudimos procesar tu solicitud. Inténtalo nuevamente en unos instantes.');
+    }
+  };
+
   return (
     <Container className="mt-5 mb-5">
       <Row className="g-5">
@@ -71,11 +109,44 @@ const MainContent: React.FC<MainContentProps> = ({ cardsData, galleryData, aside
                 <p className="small mb-3">
                   Recibe noticias exclusivas, sorteos y contenido especial del MegaCrossOver directamente en tu correo.
                 </p>
-                <div className="d-grid gap-2">
-                  <button className="btn btn-light rounded-pill fw-bold shadow-sm">
-                    ¡Suscribirme ahora!
-                  </button>
-                </div>
+                <Form onSubmit={handleSubmit} className="text-start">
+                  <Form.Group controlId="newsletterEmail" className="mb-3">
+                    <Form.Label className="text-white">Correo electrónico</Form.Label>
+                    <Form.Control
+                      type="email"
+                      placeholder="tuemail@ejemplo.com"
+                      value={email}
+                      onChange={(event) => setEmail(event.target.value)}
+                      isInvalid={status === 'error' && !isValidEmail(email)}
+                      disabled={status === 'loading'}
+                      required
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      Ingresa un correo electrónico válido.
+                    </Form.Control.Feedback>
+                    <Form.Text className="text-white-50">
+                      Solo usaremos tu correo para enviarte novedades del club.
+                    </Form.Text>
+                  </Form.Group>
+                  <div className="d-grid gap-2">
+                    <Button
+                      type="submit"
+                      variant="light"
+                      className="rounded-pill fw-bold shadow-sm"
+                      disabled={status === 'loading'}
+                    >
+                      {status === 'loading' ? 'Enviando...' : '¡Suscribirme ahora!'}
+                    </Button>
+                  </div>
+                </Form>
+                {status !== 'idle' && message && (
+                  <div
+                    className={`mt-3 small fw-semibold ${status === 'success' ? 'text-success' : 'text-warning'}`}
+                    role="status"
+                  >
+                    {message}
+                  </div>
+                )}
             </div>
 
           </aside>
