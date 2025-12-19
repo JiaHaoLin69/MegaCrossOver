@@ -9,44 +9,60 @@ import { FaTiktok, FaReddit } from 'react-icons/fa'; // <--- NUEVOS ICONOS
 
 // Datos de navegación
 const navLinksData: NavLinkItem[] = [
-  { id: 1, label: 'Inicio', href: '/', Icon: MdHome }, 
+  { id: 1, label: 'Inicio', href: '/', Icon: MdHome },
   { id: 2, label: 'Personajes', href: '/personajes', Icon: MdStar },
   { id: 3, label: 'Galería', href: '/galeria', Icon: MdImage },
 ];
 
 // --- AQUÍ ESTÁ EL CAMBIO EN LOS SOCIAL LINKS ---
 const socialLinks = [
-    { id: 1, Icon: FaTiktok, href: 'https://www.tiktok.com/@jiahaolin69', label: 'TikTok' },
-    { id: 2, Icon: FaReddit, href: 'https://www.reddit.com/user/Apprehensive-Fly-109/', label: 'Reddit' },
-    { id: 3, Icon: MdEmail, href: 'mailto:jiahaolinyt@gmail.com', label: 'Email' },
+  { id: 1, Icon: FaTiktok, href: 'https://www.tiktok.com/@jiahaolin69', label: 'TikTok' },
+  { id: 2, Icon: FaReddit, href: 'https://www.reddit.com/user/Apprehensive-Fly-109/', label: 'Reddit' },
+  { id: 3, Icon: MdEmail, href: 'mailto:jiahaolinyt@gmail.com', label: 'Email' },
 ];
 
 const Layout: React.FC = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
+  // Estados básicos para satisfacer la interfaz NavbarProps
+  const [theme, setTheme] = React.useState('light');
+  // Si deseas implementar el carrito aquí, necesitarás un estado real similar a App.tsx
+  const [cartCount, setCartCount] = React.useState(0);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
+
+  const handleOpenCart = () => {
+    console.log("Abrir carrito");
+  };
+
   return (
     <div className="App">
-      <NavBar 
-              links={navLinksData}
-              brandName="MEGACROSSOVER" currentTheme={''} toggleTheme={function (): void {
-                  throw new Error('Function not implemented.');
-              } }      />
-      
+      <NavBar
+        links={navLinksData}
+        brandName="MEGACROSSOVER"
+        currentTheme={theme}
+        toggleTheme={toggleTheme}
+        cartCount={cartCount}
+        onOpenCart={handleOpenCart}
+      />
+
       {isHomePage && (
-          <Header 
-            title="WATANARE" 
-            subtitle="¿¡No hay manera de que pueda tener un amante!? (O tal vez sí)" 
-          />
+        <Header
+          title="WATANARE"
+          subtitle="¿¡No hay manera de que pueda tener un amante!? (O tal vez sí)"
+        />
       )}
 
       <div style={{ minHeight: '80vh', paddingTop: isHomePage ? '0' : '100px' }}>
-         <Outlet />
+        <Outlet />
       </div>
 
-      <Footer 
-        iesName="Diseñado por JiaHao | Práctica React Avanzada" 
-        socialLinks={socialLinks} 
+      <Footer
+        iesName="Diseñado por JiaHao | Práctica React Avanzada"
+        socialLinks={socialLinks}
       />
     </div>
   );
