@@ -8,6 +8,7 @@ import NavBar, { NavLinkItem } from './componentes/main/nav';
 import Footer from './componentes/main/footer';
 import Home from './componentes/pages/home'; // Importamos el nuevo Home
 import CharacterDetail from './componentes/pages/CharacterDetail';
+import CharacterList from './componentes/pages/CharacterList';
 import FullGallery from './componentes/pages/FullGallery';
 import NotFound from './componentes/pages/NotFound';
 
@@ -19,7 +20,7 @@ import { FaTiktok, FaReddit } from 'react-icons/fa';
 const navLinksData: NavLinkItem[] = [
   { id: 1, label: 'Inicio', href: '/', Icon: MdHome },
   { id: 2, label: 'Chat', href: '/chat', Icon: MdChatBubble },
-  { id: 3, label: 'Wiki Personajes', href: '/personajes', Icon: MdStar }, // Enlace a futuro o redirigir
+  { id: 3, label: 'Wiki Personajes', href: '/personajes', Icon: MdStar },
   { id: 4, label: 'Galería', href: '/galeria', Icon: MdImage },
 ];
 
@@ -61,6 +62,7 @@ const App: React.FC = () => {
           <Route index element={<Home />} />
 
           {/* Rutas dinámicas y estáticas */}
+          <Route path="personajes" element={<CharacterList />} />
           <Route path="personaje/:id" element={<CharacterDetail />} />
           <Route path="galeria" element={<FullGallery />} />
           <Route path="chat" element={<ChatMode />} />
