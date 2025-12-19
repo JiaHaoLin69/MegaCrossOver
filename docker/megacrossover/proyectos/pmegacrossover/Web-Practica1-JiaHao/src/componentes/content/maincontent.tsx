@@ -43,10 +43,6 @@ const MainContent: React.FC<MainContentProps> = ({ cardsData, galleryData, aside
         subject: '¡Nueva suscripción al Club MegaCrossOver!',
         messageTemplate:
           '¡Gracias por suscribirte a MegaCrossOver! Pronto recibirás nuestras novedades en {email}.',
-      });
-      setStatus('success');
-      setMessage('¡Gracias por unirte! Revisa tu bandeja para confirmar tu suscripción.');
-      setEmail('');
     } catch (error) {
       setStatus('error');
       setMessage('No pudimos procesar tu solicitud. Inténtalo nuevamente en unos instantes.');
