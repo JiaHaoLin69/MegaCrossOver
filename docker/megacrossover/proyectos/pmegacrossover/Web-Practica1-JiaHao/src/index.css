@@ -1,67 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 
 :root {
-    /* --- COLORES IDENTIDAD (Watanare) --- */
+    /* --- COLORES IDENTIDAD --- */
     --primary-pink: #ff7eb3;
     --primary-blue: #7afcff;
     --accent-purple: #8e44ad;
-
-    /* Colores de Personajes */
     --color-renako: #ff8fa3;
     --color-mai: #f9ca24;
     --color-ajisai: #c0a080;
-
-    /* --- MODO CLARO (Base) --- */
-    --bg-body: #f0f2f5;
-    --bg-card: rgba(255, 255, 255, 0.9);
-    /* Un poco más sólido que el cristal puro */
-    --bg-surface: #ffffff;
-    /* Para elementos sólidos */
-
-    --text-main: #2d3436;
-    --text-muted: #636e72;
-    --border-color: rgba(0, 0, 0, 0.1);
-
-    /* Efecto Cristal (Glassmorphism) */
-    --glass-bg: rgba(255, 255, 255, 0.65);
-    --glass-border: rgba(255, 255, 255, 0.5);
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-
-    /* Navbar y Footer */
-    --nav-bg: rgba(255, 255, 255, 0.85);
-    /* ¡Esto arregla el footer! */
-
-    /* Degradados de Fondo (La clave de la profundidad) */
-    --body-gradient-1: hsla(253, 16%, 7%, 0.05);
-    --body-gradient-2: hsla(225, 39%, 30%, 0.05);
-    --body-gradient-3: hsla(339, 49%, 30%, 0.05);
 }
 
-/* --- MODO OSCURO --- */
+[data-theme="light"] {
+    --bg-body: #f8fafc;
+    --bg-card: rgba(255, 255, 255, 0.9);
+    --bg-surface: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.07);
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    --body-gradient-1: rgba(255, 126, 179, 0.05);
+    --body-gradient-2: rgba(122, 252, 255, 0.05);
+    --body-gradient-3: rgba(142, 68, 173, 0.05);
+}
+
 [data-theme="dark"] {
     --primary-pink: #ff5e99;
-
-    --bg-body: #0f172a;
-    --bg-card: rgba(30, 41, 59, 0.9);
+    --bg-body: #0a0f1e;
+    --bg-card: rgba(30, 41, 59, 0.8);
     --bg-surface: #1e293b;
-
-    --text-main: #e2e8f0;
+    --text-main: #f1f5f9;
     --text-muted: #94a3b8;
     --border-color: rgba(255, 255, 255, 0.1);
-
-    /* Cristal Oscuro */
     --glass-bg: rgba(15, 23, 42, 0.6);
     --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-
-    --nav-bg: rgba(15, 23, 42, 0.95);
-    /* Footer oscuro casi opaco */
-
-    /* Degradados más intensos para la noche */
-    --body-gradient-1: hsla(253, 16%, 7%, 1);
-    --body-gradient-2: hsla(225, 39%, 30%, 0.2);
-    --body-gradient-3: hsla(339, 49%, 30%, 0.2);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --nav-bg: rgba(10, 15, 30, 0.9);
+    --body-gradient-1: rgba(255, 94, 153, 0.15);
+    --body-gradient-2: rgba(122, 252, 255, 0.1);
+    --body-gradient-3: rgba(142, 68, 173, 0.15);
 }
+
 
 html,
 body {
@@ -70,17 +51,35 @@ body {
     font-family: 'Poppins', sans-serif;
 
     /* APLICAMOS EL FONDO CON GRADIENTES */
-    background-color: var(--bg-body);
+    background-color: var(--bg-body) !important;
     background-image:
         radial-gradient(at 0% 0%, var(--body-gradient-1) 0, transparent 50%),
         radial-gradient(at 50% 0%, var(--body-gradient-2) 0, transparent 50%),
-        radial-gradient(at 100% 0%, var(--body-gradient-3) 0, transparent 50%);
-    background-attachment: fixed;
+        radial-gradient(at 100% 0%, var(--body-gradient-3) 0, transparent 50%) !important;
+    background-attachment: fixed !important;
 
-    color: var(--text-main);
+    color: var(--text-main) !important;
     overflow-x: hidden;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }
+
+
+/* Forzar que todos los elementos hereden el color del tema por defecto */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p,
+label,
+li,
+a:not(.btn) {
+    color: inherit;
+}
+
+
 
 /* Scrollbar Bonita */
 ::-webkit-scrollbar {
@@ -100,4 +99,116 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--accent-purple);
+}
+
+/* --- CLASES DE UTILIDAD (Glassmorphism) --- */
+.glass-panel,
+.glass-widget {
+    background: var(--bg-card) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    color: var(--text-main) !important;
+    transition: background 0.3s ease, border 0.3s ease;
+}
+
+/* Forzar colores en paneles de cristal */
+.glass-panel h1,
+.glass-panel h2,
+.glass-panel h3,
+.glass-panel h4,
+.glass-panel h5,
+.glass-panel h6,
+.glass-widget h1,
+.glass-widget h2,
+.glass-widget h3,
+.glass-widget h4,
+.glass-widget h5,
+.glass-widget h6,
+.card-title {
+    color: var(--text-main) !important;
+}
+
+.glass-panel p,
+.glass-panel .card-text,
+.glass-widget p,
+.glass-widget .card-text {
+    color: var(--text-muted) !important;
+}
+
+/* Utilidades de Texto Temáticas (Sobrescriben Bootstrap para ser dinámicas) */
+.text-main {
+    color: var(--text-main) !important;
+}
+
+/* Sobrescribir text-muted de Bootstrap para que use nuestra variable dinámica */
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* Evitar que Bootstrap fuerce colores estáticos en temas dinámicos */
+[data-theme="dark"] .text-dark {
+    color: var(--text-main) !important;
+}
+
+[data-theme="light"] .text-light {
+    color: var(--text-muted) !important;
+}
+
+/* Gradientes de Texto */
+.gradient-text {
+    background: linear-gradient(45deg, var(--primary-pink), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+/* Fondo degradado para botones o destacados */
+.gradient-bg {
+    background: linear-gradient(135deg, var(--primary-pink) 0%, var(--accent-purple) 100%);
+    color: white !important;
+    border: none;
+}
+
+.gradient-bg p,
+.gradient-bg h1,
+.gradient-bg h2,
+.gradient-bg h3,
+.gradient-bg h4,
+.gradient-bg h5,
+.gradient-bg h6,
+.gradient-bg label,
+.gradient-bg span {
+    color: white !important;
+}
+
+/* Correcciones de visibilidad para componentes específicos de Bootstrap */
+.list-group-item {
+    background-color: transparent !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+}
+
+.modal-content {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--glass-border) !important;
+}
+
+.form-control,
+.form-select {
+    background-color: var(--bg-surface) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+}
+
+.form-control:focus {
+    background-color: var(--bg-surface) !important;
+    color: var(--text-main) !important;
+}
+
+.form-label {
+    color: var(--text-main) !important;
 }

@@ -1,7 +1,5 @@
 .navbar-custom {
-    background: var(--nav-bg) !important; /* Variable adaptativa */
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background: var(--nav-bg) !important;
     border-bottom: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
     padding: 12px 0 !important;
@@ -11,21 +9,22 @@
 
 /* Estilo del Título MEGACROSSOVER */
 .brand-button {
-    font-weight: 900; /* Más grueso para que se vea bien */
+    font-weight: 900;
+    /* Más grueso para que se vea bien */
     font-size: 1.6rem !important;
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
-    
+
     /* Color principal SÓLIDO por si falla el gradiente */
-    color: #e84393 !important; 
-    
+    color: #e84393 !important;
+
     /* Intento de gradiente (si el navegador lo soporta) */
     background: -webkit-linear-gradient(45deg, #ff7eb3, #8e44ad);
     -webkit-background-clip: text;
     background-clip: text;
     /* Solo hacemos el texto transparente si el background-clip funciona */
-    -webkit-text-fill-color: transparent; 
+    -webkit-text-fill-color: transparent;
 }
 
 /* Fallback para navegadores que no soporten text-fill-color */
@@ -47,7 +46,8 @@
 }
 
 .navbar-nav .nav-link {
-    color: var(--text-main) !important; /* Color texto adaptativo */
+    color: var(--text-main) !important;
+    /* Color texto adaptativo */
     font-weight: 600;
     padding: 8px 16px !important;
     border-radius: 8px;
@@ -56,7 +56,8 @@
 
 .navbar-nav .nav-link:hover {
     background: rgba(255, 126, 179, 0.15);
-    color: #e84393 !important; /* Hover rosa siempre */
+    color: #e84393 !important;
+    /* Hover rosa siempre */
 }
 
 /* Asegurar que el icono también cambie */

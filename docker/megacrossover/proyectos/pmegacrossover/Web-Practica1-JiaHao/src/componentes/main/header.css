@@ -1,43 +1,45 @@
 .imagen {
-    /* Usamos la imagen 10 (Poster grupal) */
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(44, 62, 80, 0.8)), url('../../assets/images/10.jpg');
-    
+    background-image: url('../../assets/images/10.jpg');
+
+
     /* PROPIEDAD CLAVE: Alineamos la imagen ARRIBA (top) para ver las caras */
-    background-position: center top; 
-    
+    background-position: center top;
+
     background-size: cover;
     background-repeat: no-repeat;
     /* Mantenemos el efecto parallax si te gusta, si marea cámbialo a 'scroll' */
-    background-attachment: fixed; 
-    
+    background-attachment: fixed;
+
     /* Dimensiones "Bestias" (Iguales que antes) */
     width: 100%;
-    height: 85vh; /* Ocupa el 85% de la altura de la pantalla */
-    
+    height: 85vh;
+    /* Ocupa el 85% de la altura de la pantalla */
+
     display: flex;
-    align-items: center; /* Centrado vertical del contenido */
-    justify-content: center; /* Centrado horizontal */
-    
+    align-items: center;
+    /* Centrado vertical del contenido */
+    justify-content: center;
+    /* Centrado horizontal */
+
     position: relative;
     border-bottom-left-radius: 50% 10%;
     border-bottom-right-radius: 50% 10%;
-    box-shadow: 0 10px 50px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4);
     margin-bottom: 60px;
 }
 
 .contenido {
     z-index: 2;
     padding: 40px 60px;
-    background: rgba(255, 255, 255, 0.1); /* Cristal muy sutil */
-    backdrop-filter: blur(8px); /* Difuminado del fondo tras el texto */
+    background: var(--bg-card);
+    /* Cristal con difuminado sutil para legibilidad */
+    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
     max-width: 900px;
-    
-    /* TRUCO: Bajamos un poco el texto para despejar las caras de arriba */
     margin-top: 150px;
 }
 
@@ -45,21 +47,24 @@
     font-size: 5rem;
     font-weight: 800;
     margin: 0;
-    color: white;
+    color: var(--text-main);
     text-transform: uppercase;
     letter-spacing: 5px;
-    text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     line-height: 1;
 }
+
 
 .contenido p {
     font-size: 1.6rem;
     margin-top: 15px;
-    color: #f0f0f0;
-    font-weight: 300;
+    color: var(--text-muted);
+    font-weight: 500;
+    /* Más grueso para legibilidad */
     letter-spacing: 1px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
+
 
 .pill {
     display: inline-flex;
@@ -73,7 +78,7 @@
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .hero-actions {
@@ -83,9 +88,33 @@
     margin: 25px 0 10px;
 }
 
-.hero-actions .btn:hover {
+.hero-actions .btn {
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.hero-actions .btn-light {
+    background: var(--primary-pink);
+    border-color: var(--primary-pink);
+    color: white !important;
+}
+
+.hero-actions .btn-light:hover {
+    background: var(--accent-purple);
+    border-color: var(--accent-purple);
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.hero-actions .btn-outline-primary {
+    border-color: var(--primary-pink);
+    color: var(--primary-pink) !important;
+}
+
+.hero-actions .btn-outline-primary:hover {
+    background: var(--primary-pink);
+    color: white !important;
+    transform: translateY(-2px);
 }
 
 .hero-metrics {
@@ -96,13 +125,13 @@
 }
 
 .metric {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.2);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     border-radius: 18px;
     padding: 14px 16px;
     text-align: left;
-    color: #f5f7ff;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    color: var(--text-main);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .metric-label {
@@ -119,7 +148,7 @@
 }
 
 .metric small {
-    color: rgba(245,247,255,0.8);
+    color: var(--text-muted);
 }
 
 /* Animación de entrada */
@@ -128,21 +157,35 @@
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Ajustes para móvil */
 @media (max-width: 768px) {
     .imagen {
         height: 60vh;
-        background-attachment: scroll; /* En móvil mejor scroll normal */
-        border-radius: 0 0 30px 30px; /* Curva menos agresiva */
+        background-attachment: scroll;
+        /* En móvil mejor scroll normal */
+        border-radius: 0 0 30px 30px;
+        /* Curva menos agresiva */
     }
+
     .contenido {
         padding: 20px;
-        margin-top: 50px; /* Menos margen en móvil */
+        margin-top: 50px;
+        /* Menos margen en móvil */
         width: 90%;
     }
-    .contenido h1 { font-size: 2.5rem; }
+
+    .contenido h1 {
+        font-size: 2.5rem;
+    }
 }

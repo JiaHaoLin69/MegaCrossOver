@@ -1,0 +1,31 @@
+.cart-drawer {
+    /* Usamos variables para adaptabilidad automática */
+    background: var(--bg-card) !important;
+    backdrop-filter: blur(20px);
+    color: var(--text-main) !important;
+    border-left: 1px solid var(--glass-border);
+}
+
+[data-theme="dark"] .cart-drawer {
+    background: var(--bg-card) !important;
+    color: var(--text-main) !important;
+}
+
+
+.cart-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cart-list::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, var(--primary-pink) 0%, var(--accent-purple) 100%);
+    transition: opacity 0.3s ease;
+}
+
+.gradient-bg:hover {
+    opacity: 0.9;
+}
