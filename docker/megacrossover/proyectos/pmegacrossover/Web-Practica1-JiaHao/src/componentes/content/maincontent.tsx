@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Form, ListGroup, Row } from 'react-bootstrap';
-import CardContainer from './container'; 
-import Gallery, { type GalleryItem } from './galeria'; 
-import YouTubeVideo from '../aside/video'; 
-import type { CardProps } from './bootstrap'; 
+import CardContainer from './container';
+import Gallery, { type GalleryItem } from './galeria';
+import YouTubeVideo from '../aside/video';
+import type { CardProps } from './bootstrap';
+import { sendNewsletterSubscription } from '../../services/newsletter';
 
 // Definimos el tipo para los enlaces del aside
 export interface AsideLinkItem {
@@ -38,16 +39,11 @@ const MainContent: React.FC<MainContentProps> = ({ cardsData, galleryData, aside
     setMessage('');
 
     try {
-      const response = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+      await sendNewsletterSubscription(email, {
+        subject: '¡Nueva suscripción al Club MegaCrossOver!',
+        messageTemplate:
+          '¡Gracias por suscribirte a MegaCrossOver! Pronto recibirás nuestras novedades en {email}.',
       });
-
-      if (!response.ok) {
-        throw new Error('Solicitud fallida');
-      }
-
       setStatus('success');
       setMessage('¡Gracias por unirte! Revisa tu bandeja para confirmar tu suscripción.');
       setEmail('');
