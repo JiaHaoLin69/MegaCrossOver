@@ -17,11 +17,11 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
             <p>{subtitle}</p>
 
             <div className="hero-actions">
-                <Button as={Link} to="/chat" variant="light" className="shadow-sm rounded-pill px-4">
+                <Button as={Link as any} to="/chat" variant="light" className="shadow-sm rounded-pill px-4">
                     Probar el chat en vivo
                 </Button>
                 <Button
-                    as={Link}
+                    as={Link as any}
                     to="/galeria"
                     variant="outline-light"
                     className="rounded-pill px-4 text-white"
