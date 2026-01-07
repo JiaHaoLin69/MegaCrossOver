@@ -12,10 +12,11 @@ import CharacterList from './componentes/pages/CharacterList';
 import FullGallery from './componentes/pages/FullGallery';
 import Shop from './componentes/pages/Shop';
 import CartDrawer from './componentes/shop/CartDrawer';
+import Favorites from './componentes/pages/Favorites';
 import NotFound from './componentes/pages/NotFound';
 
 // Iconos
-import { MdHome, MdStar, MdImage, MdEmail } from 'react-icons/md';
+import { MdHome, MdStar, MdImage, MdEmail, MdFavorite } from 'react-icons/md';
 import { FaTiktok, FaReddit } from 'react-icons/fa';
 
 // Datos de navegación
@@ -62,12 +63,33 @@ const App = () => {
 
   const toggleCart = () => setShowCart(!showCart);
 
+  // Lógica de Favoritos
+  const [favorites, setFavorites] = useState<number[]>(() => {
+    const saved = localStorage.getItem('favorites');
+    try {
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
+
+  const toggleFavorite = (id: number) => {
+    setFavorites(prev =>
+      prev.includes(id) ? prev.filter(favId => favId !== id) : [...prev, id]
+    );
+  };
+
   // Datos de navegación actualizados
   const navLinksData: NavLinkItem[] = [
     { id: 1, label: 'Inicio', href: '/', Icon: MdHome },
-    { id: 2, label: 'Tienda', href: '/tienda', Icon: MdStar }, // Nuevo enlace
+    { id: 2, label: 'Tienda', href: '/tienda', Icon: MdStar },
     { id: 3, label: 'Wiki', href: '/personajes', Icon: MdStar },
     { id: 4, label: 'Galería', href: '/galeria', Icon: MdImage },
+    { id: 5, label: 'Favoritos', href: '/favoritos', Icon: MdFavorite },
   ];
 
   return (
@@ -92,9 +114,10 @@ const App = () => {
         <Routes>
           <Route index element={<Home />} />
           <Route path="tienda" element={<Shop onAddToCart={addToCart} />} />
-          <Route path="personajes" element={<CharacterList />} />
+          <Route path="personajes" element={<CharacterList favorites={favorites} toggleFavorite={toggleFavorite} />} />
           <Route path="personaje/:id" element={<CharacterDetail />} />
           <Route path="galeria" element={<FullGallery />} />
+          <Route path="favoritos" element={<Favorites favorites={favorites} toggleFavorite={toggleFavorite} />} />
           <Route path="chat" element={<ChatMode />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

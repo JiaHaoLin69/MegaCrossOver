@@ -3,7 +3,12 @@ import { Container } from 'react-bootstrap';
 import CardContainer from '../content/container';
 import { cardData } from '../../data';
 
-const CharacterList: React.FC = () => {
+interface CharacterListProps {
+  favorites?: number[]; // Hacemos opcional para no romper si no se pasan, pero deberían pasarse
+  toggleFavorite?: (id: number) => void;
+}
+
+const CharacterList: React.FC<CharacterListProps> = ({ favorites = [], toggleFavorite }) => {
   return (
     <div className="fade-in">
       <Container className="mt-5 pt-5 text-center">
@@ -21,6 +26,8 @@ const CharacterList: React.FC = () => {
           imgSrc: char.imgSrc,
           variant: char.variant,
           buttonLabel: 'Ver Detalles',
+          isFavorite: favorites.includes(char.id),
+          onToggleFavorite: toggleFavorite
         }))}
       />
     </div>
